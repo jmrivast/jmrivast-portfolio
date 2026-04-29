@@ -7,10 +7,24 @@ El proyecto ya no está orientado principalmente a un CV/PDF. La decisión actua
 El archivo principal es:
 
 ```txt
-CV.html
+index.html
 ```
 
-Es un HTML autocontenido con CSS y JavaScript dentro del mismo archivo. No depende de Tailwind, jQuery, CDN ni servidor local, por lo que puede abrirse directamente en el navegador.
+`index.html` es la versión publicada para GitHub Pages. `CV.html` se conserva como copia editable local con el mismo contenido de la landing.
+
+Es un HTML autocontenido con CSS y JavaScript dentro del mismo archivo. No depende de Tailwind, jQuery ni servidor local, por lo que puede abrirse directamente en el navegador. Sí carga la fuente Inter desde Google Fonts.
+
+Repositorio público:
+
+```txt
+https://github.com/jmrivast/jmrivast-portfolio
+```
+
+URL pública:
+
+```txt
+https://jmrivast.github.io/jmrivast-portfolio/
+```
 
 ---
 
@@ -451,16 +465,18 @@ Nota: se generaron capturas temporales para QA y luego fueron eliminadas.
 - [x] La paleta usa navy, blanco, gris y teal.
 - [x] El mockup principal ya no corta texto en desktop.
 - [x] GitHub/Portafolio fue reemplazado por github.com/jmrivast.
+- [x] El sitio está publicado como `index.html` en GitHub Pages.
 - [ ] Falta prueba en móvil real.
-- [ ] Falta decidir si se publicará como `index.html`.
 
 ---
 
 ## Próximo paso sugerido
 
-Si se va a publicar, lo más recomendable es:
+El sitio ya está publicado en GitHub Pages.
 
-1. Renombrar o duplicar `CV.html` como `index.html`.
-2. Agregar favicon y metadata para redes.
-3. Reemplazar el placeholder de GitHub/Portafolio.
-4. Subirlo a GitHub Pages, Cloudflare Pages, Netlify o Render Static Site.
+Próximos pasos recomendados:
+
+1. Probar manualmente la URL pública en móvil real.
+2. Agregar favicon.
+3. Agregar una imagen Open Graph cuando exista una captura o asset del portfolio.
+4. Evaluar si conviene mover este contenido al repo `jmrivast.github.io` más adelante.
