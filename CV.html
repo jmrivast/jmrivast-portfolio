@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio freelance de José Manuel Rivas Tineo, desarrollador backend especializado en APIs, automatización, bases de datos y sistemas internos para negocios." />
+  <meta property="og:title" content="José Manuel Rivas Tineo | Backend y Automatización para Negocios" />
+  <meta property="og:description" content="Ayudo a negocios a convertir procesos manuales en sistemas internos, APIs, bases de datos y reportes prácticos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_DO" />
+  <meta name="theme-color" content="#0f2d6b" />
+  <title>José Manuel Rivas Tineo | Backend y Automatización para Negocios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2d6b;
+      --blue: #2459a6;
+      --teal: #18a8a8;
+      --ink: #182230;
+      --muted: #667085;
+      --soft: #f3f7fb;
+      --surface: #ffffff;
+      --surface-2: #eef6f7;
+      --line: #d8e1ea;
+      --shadow: 0 24px 70px rgba(18, 34, 64, 0.12);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #fbfdff;
+      color: var(--ink);
+      font-family: 'Inter', Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 253, 255, 0.92);
+      border-bottom: 1px solid rgba(216, 225, 234, 0.9);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 40px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: white;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0;
+      box-shadow: 0 12px 30px rgba(7, 22, 77, 0.22);
+    }
+
+    .brand-text strong,
+    .brand-text span {
+      display: block;
+    }
+
+    .brand-text strong {
+      color: var(--navy);
+      font-size: 15px;
+      line-height: 1.1;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      border-radius: 999px;
+      color: #344054;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 13px;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: #edf4f9;
+      color: var(--navy);
+      outline: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin: 4px auto;
+      background: currentColor;
+      border-radius: 99px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .button-primary {
+      background: var(--teal);
+      color: white;
+      box-shadow: 0 16px 34px rgba(24, 168, 168, 0.24);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      background: #129898;
+      box-shadow: 0 20px 42px rgba(24, 168, 168, 0.3);
+    }
+
+    .button-secondary {
+      background: white;
+      border-color: var(--line);
+      color: var(--navy);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      border-color: #b8c8d9;
+      box-shadow: 0 14px 34px rgba(18, 34, 64, 0.1);
+    }
+
+    .hero {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 82px 0 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 670px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+      color: var(--navy);
+      font-size: clamp(44px, 7vw, 76px);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .hero-title {
+      margin-bottom: 22px;
+      color: #344054;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .hero-location {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      margin-top: -8px;
+    }
+
+    .hero-summary {
+      max-width: 620px;
+      margin-bottom: 28px;
+      color: #475467;
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 620px;
+    }
+
+    .signal {
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--teal);
+      border-radius: var(--radius);
+      background: white;
+      padding: 14px;
+      min-height: 84px;
+    }
+
+    .signal strong {
+      display: block;
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .signal span {
+      display: block;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .system-preview {
+      overflow: hidden;
+      border: 1px solid #c9d6e2;
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .preview-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      background: var(--navy);
+      color: white;
+    }
+
+    .window-dots {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .window-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .preview-top strong {
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+
+    .preview-body {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      min-height: 430px;
+    }
+
+    .preview-sidebar {
+      padding: 18px;
+      background: #f7fafc;
+      border-right: 1px solid var(--line);
+    }
+
+    .mini-profile {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mini-profile strong {
+      display: block;
+      color: var(--navy);
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .mini-profile span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .side-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 11px 0;
+      color: #344054;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .side-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: #e6f2f3;
+      display: grid;
+      place-items: center;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .preview-main {
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: white;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin-bottom: 7px;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--navy);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .pipeline {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 15px;
+      background: #fbfdff;
+    }
+
+    .pipeline h3 {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-size: 15px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 42px;
+      border: 1px solid #cdeaea;
+      border-radius: var(--radius);
+      background: #f0fbfb;
+      padding: 9px 10px;
+      color: #0c6666;
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      font-size: 12.5px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .flow-step span {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--teal);
+      color: white;
+      font-size: 11px;
+    }
+
+    .flow-step strong {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .data-table {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 68px 64px;
+      gap: 8px;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 12px;
+      border-bottom: 1px solid #edf2f7;
+      color: #475467;
+      font-size: 12px;
+    }
+
+    .table-row span {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .table-row:last-child {
+      border-bottom: 0;
+    }
+
+    .table-row.header {
+      min-height: 36px;
+      background: #f8fafc;
+      color: var(--muted);
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: #eef8f8;
+      color: #0c6666;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .floating-note {
+      width: min(340px, 100%);
+      margin: 16px 0 0 auto;
+      border: 1px solid #9ddede;
+      border-radius: var(--radius);
+      background: #eef8f8;
+      padding: 15px;
+      box-shadow: 0 18px 48px rgba(18, 34, 64, 0.16);
+    }
+
+    .floating-note strong {
+      display: block;
+      color: #0c6666;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .floating-note span {
+      color: #245e67;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .section {
+      padding: 82px 0;
+    }
+
+    .section.alt {
+      background: var(--soft);
+    }
+
+    .section-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+      color: #475467;
+      font-size: 17px;
+    }
+
+    .problem-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .problem-statement {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--teal);
+      border-radius: var(--radius);
+      background: white;
+      padding: 28px;
+    }
+
+    .problem-statement p {
+      margin-bottom: 0;
+      color: #344054;
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .problem-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .problem-item {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      padding: 18px;
+    }
+
+    .number {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: white;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .problem-item h3 {
+      margin-bottom: 3px;
+      color: var(--navy);
+      font-size: 17px;
+    }
+
+    .problem-item p {
+      margin-bottom: 0;
+      color: #667085;
+      font-size: 14px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .service-card {
+      min-height: 240px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      padding: 22px;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: #b6d8da;
+      box-shadow: 0 22px 52px rgba(18, 34, 64, 0.11);
+    }
+
+    .service-card:nth-child(1) {
+      border-top: 3px solid var(--teal);
+    }
+
+    .service-card:nth-child(2) {
+      border-top: 3px solid var(--blue);
+    }
+
+    .service-card:nth-child(3) {
+      border-top: 3px solid var(--navy);
+    }
+
+    .service-card:nth-child(4) {
+      border-top: 3px solid #94a3b8;
+    }
+
+    .badge-top {
+      display: inline-block;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      background: var(--teal);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 10px 22px rgba(24, 168, 168, 0.22);
+    }
+
+    .service-icon {
+      width: 46px;
+      height: 46px;
+      margin-bottom: 18px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: #eef8f8;
+      color: var(--teal);
+      font-weight: 900;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: 19px;
+      line-height: 1.2;
+    }
+
+    .service-card p {
+      margin-bottom: 0;
+      color: #5a6678;
+      font-size: 14.5px;
+    }
+
+    .project-stack {
+      display: grid;
+      gap: 22px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 0.94fr 1.06fr;
+      gap: 30px;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      padding: 24px;
+      box-shadow: 0 20px 54px rgba(18, 34, 64, 0.07);
+    }
+
+    .project-card:nth-child(even) {
+      grid-template-columns: 1.06fr 0.94fr;
+    }
+
+    .project-card:nth-child(even) .project-copy {
+      order: 2;
+    }
+
+    .project-copy {
+      align-self: center;
+    }
+
+    .project-copy h3 {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-size: clamp(24px, 2.7vw, 34px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .project-copy p {
+      color: #475467;
+      font-size: 16px;
+    }
+
+    .project-copy ul {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .project-copy li {
+      position: relative;
+      padding-left: 24px;
+      color: #344054;
+      font-size: 14.5px;
+    }
+
+    .project-copy li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--teal);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      border: 1px solid #cdeaea;
+      border-radius: 999px;
+      background: #effafa;
+      color: #0d6f6f;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .project-visual {
+      min-height: 330px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #d2dde8;
+      background: #f8fafc;
+    }
+
+    .visual-header {
+      min-height: 52px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #101f4f;
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .visual-body {
+      padding: 18px;
+    }
+
+    .visual-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .visual-kpis div {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      padding: 12px;
+    }
+
+    .visual-kpis span {
+      display: block;
+      color: var(--muted);
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .visual-kpis strong {
+      color: var(--navy);
+      font-size: 19px;
+    }
+
+    .visual-lines {
+      display: grid;
+      gap: 9px;
+    }
+
+    .visual-line {
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      display: grid;
+      grid-template-columns: 1fr 90px;
+      align-items: center;
+      gap: 12px;
+      padding: 0 12px;
+    }
+
+    .bar {
+      height: 8px;
+      border-radius: 999px;
+      background: #e8eef5;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--teal);
+    }
+
+    .visual-line strong {
+      color: #344054;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .phone-visual {
+      height: 100%;
+      min-height: 330px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #f6fbff, #eaf4f4);
+    }
+
+    .phone-frame {
+      width: min(250px, 76%);
+      min-height: 290px;
+      border: 10px solid #15233f;
+      border-radius: 26px;
+      background: white;
+      box-shadow: 0 22px 60px rgba(18, 34, 64, 0.18);
+      overflow: hidden;
+    }
+
+    .phone-top {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .phone-content {
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .budget-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px;
+      font-size: 12px;
+      color: #344054;
+    }
+
+    .budget-row strong {
+      color: var(--teal);
+    }
+
+    .demo-visual {
+      min-height: 330px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      background: white;
+    }
+
+    .demo-panel {
+      padding: 18px;
+      border-right: 1px solid var(--line);
+      background: #f6f8fb;
+    }
+
+    .demo-panel h4 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: 15px;
+    }
+
+    .demo-panel div {
+      height: 34px;
+      margin-bottom: 9px;
+      border-radius: var(--radius);
+      background: white;
+      border: 1px solid var(--line);
+    }
+
+    .demo-board {
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .demo-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+      padding: 13px;
+    }
+
+    .demo-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .demo-card span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .process-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: calc(12.5% + 11px);
+      right: calc(12.5% + 11px);
+      height: 4px;
+      background: var(--teal);
+      z-index: 0;
+    }
+
+    .process-step {
+      position: relative;
+      z-index: 1;
+      border-top: 4px solid var(--teal);
+      border-radius: 0 0 var(--radius) var(--radius);
+      background: white;
+      padding: 22px;
+      box-shadow: 0 16px 42px rgba(18, 34, 64, 0.07);
+    }
+
+    .process-step span {
+      display: block;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .process-step h3 {
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .process-step p {
+      margin-bottom: 0;
+      color: #5a6678;
+      font-size: 14px;
+    }
+
+    .tools-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .tool-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .tool-group,
+    .work-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      padding: 22px;
+    }
+
+    .tool-group h3,
+    .work-card h3 {
+      margin-bottom: 14px;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .tool-group:nth-child(1) .chip {
+      background: #eef8f8;
+      color: #0c6666;
+    }
+
+    .tool-group:nth-child(2) .chip {
+      background: #eef3fb;
+      color: #1a3d7a;
+    }
+
+    .tool-group:nth-child(3) .chip {
+      background: #eef8f8;
+      color: #0c6666;
+    }
+
+    .tool-group:nth-child(4) .chip {
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    .work-card p {
+      color: #475467;
+      font-size: 15px;
+    }
+
+    .work-card ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #475467;
+      font-size: 14px;
+    }
+
+    .work-card li {
+      margin: 8px 0;
+    }
+
+    .contact-section {
+      background: var(--navy);
+      color: white;
+      padding: 88px 0;
+    }
+
+    .contact-layout {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .contact-copy h2 {
+      margin-bottom: 18px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .contact-copy p {
+      max-width: 620px;
+      color: #dbe6ff;
+      font-size: 18px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      max-width: 520px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      color: white;
+      background: rgba(255, 255, 255, 0.06);
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .contact-link:hover,
+    .contact-link:focus-visible {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .contact-link span {
+      color: #aebee6;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .contact-link strong {
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .message-card {
+      border-radius: var(--radius);
+      background: white;
+      color: var(--ink);
+      padding: 24px;
+      box-shadow: 0 26px 80px rgba(0, 0, 0, 0.24);
+    }
+
+    .message-card h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 24px;
+    }
+
+    .message-card p {
+      margin-bottom: 18px;
+      color: #667085;
+      font-size: 14px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: #344054;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+      color: var(--ink);
+      padding: 12px 13px;
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    select:focus,
+    textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(24, 168, 168, 0.12);
+    }
+
+    textarea {
+      min-height: 116px;
+      resize: vertical;
+    }
+
+    .message-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .site-footer {
+      padding: 28px 0;
+      background: #06103a;
+      color: #cbd5e1;
+    }
+
+    .footer-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 13px;
+    }
+
+    .footer-inner strong {
+      color: white;
+    }
+
+    @media (max-width: 1040px) {
+      .hero,
+      .problem-layout,
+      .tools-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .hero-copy {
+        max-width: none;
+      }
+
+      .hero-visual {
+        max-width: 760px;
+      }
+
+      .service-grid,
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .process-grid::before {
+        display: none;
+      }
+
+      .project-card,
+      .project-card:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card:nth-child(even) .project-copy {
+        order: initial;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        width: min(calc(100% - 28px), var(--max));
+        min-height: 66px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: 70px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: white;
+        padding: 10px;
+        box-shadow: 0 20px 50px rgba(18, 34, 64, 0.14);
+      }
+
+      body.menu-open .nav-links {
+        display: flex;
+      }
+
+      .nav-links a {
+        border-radius: var(--radius);
+      }
+
+      .nav .button {
+        display: none;
+      }
+
+      .hero,
+      .section-inner,
+      .contact-layout,
+      .footer-inner {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .hero {
+        padding: 44px 0 54px;
+        gap: 34px;
+      }
+
+      h1 {
+        font-size: clamp(38px, 10.5vw, 46px);
+        line-height: 1.02;
+      }
+
+      .hero-title,
+      .hero-summary,
+      .section-head p,
+      .contact-copy p {
+        font-size: 16px;
+      }
+
+      .signal-row,
+      .metric-grid,
+      .visual-kpis,
+      .service-grid,
+      .process-grid,
+      .tool-groups {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-body,
+      .demo-visual {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-sidebar {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-note {
+        width: auto;
+        margin-top: 14px;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .project-card {
+        padding: 18px;
+      }
+
+      .contact-section {
+        padding: 62px 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-text strong {
+        font-size: 14px;
+      }
+
+      .hero-actions,
+      .message-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .preview-main,
+      .visual-body {
+        padding: 14px;
+      }
+
+      .table-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 12px;
+      }
+
+      .table-row.header {
+        display: none;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-link {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .message-card,
+      .site-footer {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      .hero,
+      .section-inner,
+      .contact-layout {
+        width: 100%;
+      }
+
+      .hero,
+      .section,
+      .contact-section {
+        padding: 28px;
+      }
+
+      .hero,
+      .problem-layout,
+      .tools-layout,
+      .contact-layout,
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .section.alt,
+      .contact-section {
+        background: white;
+        color: var(--ink);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark">JR</span>
+        <span class="brand-text">
+          <strong>José Rivas</strong>
+          <span>Backend y automatización</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <a class="button button-primary" href="https://wa.me/18292222172?text=Hola%20Jos%C3%A9%2C%20quiero%20hablar%20sobre%20un%20proyecto%20freelance." target="_blank" rel="noreferrer">WhatsApp</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">José Manuel Rivas Tineo</h1>
+        <p class="hero-location">📍 Santo Domingo, RD &nbsp;·&nbsp; Disponible para proyectos freelance</p>
+        <p class="hero-title">Desarrollador Backend y Automatización para Negocios</p>
+        <p class="hero-summary">
+          Ayudo a negocios a convertir procesos manuales en sistemas internos, APIs, bases de datos y reportes prácticos.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contacto">Hablemos de tu proyecto</a>
+          <a class="button button-secondary" href="#proyectos">Ver proyectos</a>
+        </div>
+
+        <div class="signal-row" aria-label="Áreas de especialidad">
+          <div class="signal">
+            <strong>APIs</strong>
+            <span>FastAPI, Django, REST e integraciones externas.</span>
+          </div>
+          <div class="signal">
+            <strong>Datos</strong>
+            <span>SQL Server, MySQL, SQLite, modelado y reportes.</span>
+          </div>
+          <div class="signal">
+            <strong>Flujos</strong>
+            <span>Automatización, bots, PDF/CSV y sistemas internos.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Vista representativa de un sistema interno">
+        <div class="system-preview">
+          <div class="preview-top">
+            <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <strong>Panel operativo interno</strong>
+          </div>
+
+          <div class="preview-body">
+            <aside class="preview-sidebar">
+              <div class="mini-profile">
+                <strong>Negocio conectado</strong>
+                <span>Inventario, órdenes, reportes y APIs</span>
+              </div>
+              <div class="side-row"><span class="side-icon">01</span> Órdenes</div>
+              <div class="side-row"><span class="side-icon">02</span> Inventario</div>
+              <div class="side-row"><span class="side-icon">03</span> Clientes</div>
+              <div class="side-row"><span class="side-icon">04</span> Reportes</div>
+            </aside>
+
+            <div class="preview-main">
+              <div class="metric-grid">
+                <div class="metric"><span>Tareas</span><strong>Auto</strong></div>
+                <div class="metric"><span>Datos</span><strong>SQL</strong></div>
+                <div class="metric"><span>Salida</span><strong>PDF</strong></div>
+              </div>
+
+              <div class="pipeline">
+                <h3>Flujo automatizado</h3>
+                <div class="flow">
+                  <div class="flow-step"><span>1</span><strong>Captura de datos</strong></div>
+                  <div class="flow-step"><span>2</span><strong>Validación backend</strong></div>
+                  <div class="flow-step"><span>3</span><strong>Reporte listo</strong></div>
+                  <div class="flow-step"><span>4</span><strong>Notificación automática</strong></div>
+                </div>
+              </div>
+
+              <div class="data-table">
+                <div class="table-row header"><span>Proceso</span><span>Estado</span><span>Entrega</span></div>
+                <div class="table-row"><span>Órdenes del día</span><span class="status">Listo</span><span>CSV</span></div>
+                <div class="table-row"><span>Stock bajo</span><span class="status">Listo</span><span>Alerta</span></div>
+                <div class="table-row"><span>Cierre semanal</span><span class="status">Listo</span><span>PDF</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-note">
+          <strong>Ideal para negocios con procesos manuales</strong>
+          <span>Excel, WhatsApp, reportes repetitivos, inventario, reservas, órdenes o clientes.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="resolver">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Qué puedo resolver</h2>
+          <p>Trabajo mejor cuando hay un proceso real del negocio que necesita orden, automatización o una herramienta interna más confiable.</p>
+        </div>
+
+        <div class="problem-layout">
+          <div class="problem-statement">
+            <p>
+              Si tu negocio depende demasiado de Excel, WhatsApp, reportes manuales o tareas repetitivas, puedo ayudarte a convertir ese flujo en una solución simple y mantenible.
+            </p>
+          </div>
+
+          <div class="problem-list">
+            <article class="problem-item">
+              <span class="number">01</span>
+              <div>
+                <h3>Procesos repetitivos</h3>
+                <p>Automatizo tareas que consumen tiempo: archivos, reportes, alertas, bots y validaciones.</p>
+              </div>
+            </article>
+            <article class="problem-item">
+              <span class="number">02</span>
+              <div>
+                <h3>Datos desordenados</h3>
+                <p>Diseño bases de datos y estructuras para que la información sea consultable y confiable.</p>
+              </div>
+            </article>
+            <article class="problem-item">
+              <span class="number">03</span>
+              <div>
+                <h3>Herramientas desconectadas</h3>
+                <p>Conecto servicios mediante APIs, webhooks e integraciones para reducir pasos manuales.</p>
+              </div>
+            </article>
+            <article class="problem-item">
+              <span class="number">04</span>
+              <div>
+                <h3>Falta de control operativo</h3>
+                <p>Creo sistemas internos para clientes, inventario, órdenes, reservas, reportes y administración.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Servicios freelance</h2>
+          <p>Servicios pensados para pequeñas y medianas empresas que necesitan pasar de procesos manuales a herramientas digitales.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="badge-top">Más solicitado</span>
+            <div class="service-icon">A</div>
+            <h3>Automatización de procesos</h3>
+            <p>Scripts, bots, manejo de archivos, reportes automáticos, generación de PDF/CSV y reducción de tareas repetitivas.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">B</div>
+            <h3>APIs y backend</h3>
+            <p>APIs REST con FastAPI o Django, conexión a bases de datos, autenticación e integración con servicios externos.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">C</div>
+            <h3>Sistemas internos</h3>
+            <p>Herramientas con login, clientes, productos, inventario, órdenes, reservas, pagos y panel administrativo.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">D</div>
+            <h3>Datos y reportes</h3>
+            <p>Modelado de bases de datos, consultas SQL, dashboards básicos y reportes para ventas, inventario y operaciones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="proyectos">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Proyectos destacados</h2>
+          <p>Cada proyecto está presentado desde el valor que puede entender un cliente: ordenar información, automatizar tareas y entregar sistemas útiles.</p>
+        </div>
+
+        <div class="project-stack">
+          <article class="project-card">
+            <div class="project-copy">
+              <h3>Willy Chic Dominicana S.R.L.</h3>
+              <p>Desarrollo backend y automatización para aplicaciones funcionales con lógica de negocio, bases de datos relacionales, APIs externas y chatbot con IA en Telegram.</p>
+              <ul>
+                <li>Automatización de tareas repetitivas para reducir trabajo manual.</li>
+                <li>Diseño y estructuración de bases de datos adaptadas a procesos internos.</li>
+                <li>Integración de APIs, webhooks y chatbot para conectar servicios.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Python</span>
+                <span class="tag">APIs</span>
+                <span class="tag">Webhooks</span>
+                <span class="tag">Telegram Bot</span>
+              </div>
+            </div>
+
+            <div class="project-visual" aria-label="Visual de automatización para Willy Chic">
+              <div class="visual-header">
+                <span>Automatización operativa</span>
+                <span>API + Bot + Reportes</span>
+              </div>
+              <div class="visual-body">
+                <div class="visual-kpis">
+                  <div><span>Entrada</span><strong>API</strong></div>
+                  <div><span>Proceso</span><strong>Bot</strong></div>
+                  <div><span>Salida</span><strong>PDF</strong></div>
+                </div>
+                <div class="visual-lines">
+                  <div class="visual-line"><div class="bar"><span style="width: 88%"></span></div><strong>Validación</strong></div>
+                  <div class="visual-line"><div class="bar"><span style="width: 74%"></span></div><strong>Webhook</strong></div>
+                  <div class="visual-line"><div class="bar"><span style="width: 92%"></span></div><strong>Reporte</strong></div>
+                  <div class="visual-line"><div class="bar"><span style="width: 68%"></span></div><strong>Alerta</strong></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-copy">
+              <h3>Rivas Budget Planning</h3>
+              <p>Aplicación multiplataforma de finanzas personales para Windows, Android y Web, desarrollada con Flutter/Dart, SQLite, arquitectura limpia, reportes PDF/CSV, licencias y respaldo de datos.</p>
+              <ul>
+                <li>Arquitectura limpia con separación de dominio, datos y presentación.</li>
+                <li>Base de datos SQLite con repositorios de acceso a datos.</li>
+                <li>Generación de reportes PDF/CSV y respaldo de información.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">PDF/CSV</span>
+              </div>
+            </div>
+
+            <div class="project-visual phone-visual" aria-label="Visual de aplicación de presupuesto">
+              <div class="phone-frame">
+                <div class="phone-top">Rivas Budget Planning</div>
+                <div class="phone-content">
+                  <div class="budget-row"><span>Ingreso mensual</span><strong>OK</strong></div>
+                  <div class="budget-row"><span>Gastos fijos</span><strong>72%</strong></div>
+                  <div class="budget-row"><span>Ahorro</span><strong>18%</strong></div>
+                  <div class="budget-row"><span>Reporte PDF</span><strong>Listo</strong></div>
+                  <div class="budget-row"><span>Backup</span><strong>Activo</strong></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-copy">
+              <h3>Demo en desarrollo</h3>
+              <p>Sistema demostrativo para negocios pequeños que necesitan controlar productos, clientes, inventario, órdenes y reportes desde una herramienta simple.</p>
+              <ul>
+                <li>Control básico de productos, clientes y órdenes.</li>
+                <li>Base de datos relacional preparada para reportes.</li>
+                <li>Estructura lista para integrarse con APIs, pagos o panel administrativo.</li>
+              </ul>
+              <p style="margin-top: 14px; font-size: 13px; color: var(--muted);">Demo en construcción — disponible próximamente.</p>
+              <div class="tag-row">
+                <span class="tag">Inventario</span>
+                <span class="tag">Órdenes</span>
+                <span class="tag">Reportes</span>
+                <span class="tag">CRUD</span>
+              </div>
+            </div>
+
+            <div class="project-visual demo-visual" aria-label="Visual de sistema de inventario y órdenes">
+              <div class="demo-panel">
+                <h4>Módulos</h4>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <div class="demo-board">
+                <div class="demo-card"><strong>Productos</strong><span>Stock, categorías y alertas.</span></div>
+                <div class="demo-card"><strong>Clientes</strong><span>Historial y datos de contacto.</span></div>
+                <div class="demo-card"><strong>Órdenes</strong><span>Estado, total y reporte.</span></div>
+                <div class="demo-card"><strong>Reportes</strong><span>Ventas, inventario y operación.</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proceso">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Forma de trabajo</h2>
+          <p>Un proceso simple para entender el problema, construir por etapas y dejar una solución que el negocio pueda usar sin complicaciones.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-step">
+            <span>01</span>
+            <h3>Diagnóstico</h3>
+            <p>Entiendo el flujo actual, las tareas manuales y el resultado que necesita el negocio.</p>
+          </article>
+          <article class="process-step">
+            <span>02</span>
+            <h3>Propuesta</h3>
+            <p>Defino alcance, entregables, datos necesarios y una ruta de desarrollo por etapas.</p>
+          </article>
+          <article class="process-step">
+            <span>03</span>
+            <h3>Desarrollo</h3>
+            <p>Construyo la API, automatización, base de datos, panel o reporte con avances revisables.</p>
+          </article>
+          <article class="process-step">
+            <span>04</span>
+            <h3>Entrega</h3>
+            <p>Entrego la solución con documentación básica, explicación de uso y próximos pasos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="stack">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Tecnologías</h2>
+          <p>Uso herramientas prácticas para construir backend, bases de datos, automatizaciones y productos internos mantenibles.</p>
+        </div>
+
+        <div class="tools-layout">
+          <div class="tool-groups">
+            <article class="tool-group">
+              <h3>Backend</h3>
+              <div class="chip-list">
+                <span class="chip">Python</span>
+                <span class="chip">FastAPI</span>
+                <span class="chip">Django</span>
+                <span class="chip">REST APIs</span>
+                <span class="chip">Postman</span>
+              </div>
+            </article>
+            <article class="tool-group">
+              <h3>Bases de datos</h3>
+              <div class="chip-list">
+                <span class="chip">SQL Server</span>
+                <span class="chip">MySQL</span>
+                <span class="chip">SQLite</span>
+                <span class="chip">Modelado relacional</span>
+              </div>
+            </article>
+            <article class="tool-group">
+              <h3>Automatización</h3>
+              <div class="chip-list">
+                <span class="chip">Webhooks</span>
+                <span class="chip">Telegram Bot API</span>
+                <span class="chip">APIs externas</span>
+                <span class="chip">PDF/CSV</span>
+              </div>
+            </article>
+            <article class="tool-group">
+              <h3>Herramientas</h3>
+              <div class="chip-list">
+                <span class="chip">Git</span>
+                <span class="chip">GitHub</span>
+                <span class="chip">Power BI</span>
+                <span class="chip">Flutter / Dart</span>
+                <span class="chip">HTML / CSS</span>
+              </div>
+            </article>
+          </div>
+
+          <aside class="work-card">
+            <h3>También puedo apoyar con</h3>
+            <p>Documentación básica, despliegues simples, organización del proyecto y mejoras incrementales después de la primera entrega.</p>
+            <ul>
+              <li>Entregables claros por etapas.</li>
+              <li>Código limpio y mantenible.</li>
+              <li>Comunicación directa y seguimiento del avance.</li>
+              <li>Enfoque en resolver problemas reales del negocio.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <h2>Cuéntame qué proceso quieres mejorar</h2>
+          <p>
+            Si tienes un negocio con tareas repetitivas, datos desordenados o una idea de sistema interno, puedo ayudarte a aterrizar el alcance y construir una primera versión útil.
+          </p>
+
+          <div class="contact-list">
+            <a class="contact-link" href="tel:+18292222172">
+              <span>Teléfono</span>
+              <strong>829-222-2172</strong>
+            </a>
+            <a class="contact-link" href="mailto:jmrivast0110@gmail.com">
+              <span>Email</span>
+              <strong>jmrivast0110@gmail.com</strong>
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/jmrivast0110" target="_blank" rel="noreferrer">
+              <span>LinkedIn</span>
+              <strong>linkedin.com/in/jmrivast0110</strong>
+            </a>
+            <a class="contact-link" href="https://github.com/jmrivast" target="_blank" rel="noreferrer">
+              <span>GitHub / Portafolio</span>
+              <strong>github.com/jmrivast</strong>
+            </a>
+          </div>
+        </div>
+
+        <form class="message-card" id="contactForm">
+          <h3>Arma un mensaje rápido</h3>
+          <p>Elige el tipo de proyecto y ajusta el texto. El botón abrirá WhatsApp con el mensaje listo.</p>
+
+          <div class="form-grid">
+            <label for="projectType">
+              Tipo de proyecto
+              <select id="projectType" name="projectType">
+                <option value="automatizar un proceso repetitivo">Automatización de procesos</option>
+                <option value="crear una API o integración">API o integración</option>
+                <option value="crear un sistema interno para mi negocio">Sistema interno</option>
+                <option value="organizar datos y generar reportes">Datos y reportes</option>
+              </select>
+            </label>
+
+            <label for="messageText">
+              Mensaje
+              <textarea id="messageText" name="messageText">Hola José, vi tu portfolio y tengo un negocio con [describe el proceso]. Me gustaría hablar contigo para ver si puedes ayudarme.</textarea>
+            </label>
+          </div>
+
+          <div class="message-actions">
+            <a class="button button-primary" id="whatsappLink" href="https://wa.me/18292222172" target="_blank" rel="noreferrer">Enviar por WhatsApp</a>
+            <a class="button button-secondary" id="emailLink" href="mailto:jmrivast0110@gmail.com">Enviar por email</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span><strong>José Manuel Rivas Tineo</strong> - Santo Domingo, República Dominicana &nbsp;·&nbsp; <span id="footer-year"></span></span>
+      <span>Backend, APIs, automatización y sistemas internos.</span>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const projectType = document.querySelector("#projectType");
+    const messageText = document.querySelector("#messageText");
+    const whatsappLink = document.querySelector("#whatsappLink");
+    const emailLink = document.querySelector("#emailLink");
+    const phoneNumber = "18292222172";
+    const email = "jmrivast0110@gmail.com";
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    function updateContactLinks() {
+      const message = messageText.value.trim();
+      const encodedMessage = encodeURIComponent(message);
+      whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      emailLink.href = `mailto:${email}?subject=${encodeURIComponent("Proyecto freelance")}&body=${encodedMessage}`;
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = body.classList.toggle("menu-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        body.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    projectType.addEventListener("change", () => {
+      messageText.value = `Hola José, vi tu portfolio y quiero hablar sobre ${projectType.value} en mi negocio. ¿Podemos agendar una llamada corta?`;
+      updateContactLinks();
+    });
+
+    messageText.addEventListener("input", updateContactLinks);
+    updateContactLinks();
+  </script>
+</body>
+</html>
