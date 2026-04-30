@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio freelance de José Manuel Rivas Tineo, desarrollador backend especializado en APIs, automatización, bases de datos y sistemas internos para negocios." />
   <meta property="og:title" content="José Manuel Rivas Tineo | Backend y Automatización para Negocios" />
-  <meta property="og:description" content="Ayudo a negocios a convertir procesos manuales en sistemas internos, APIs, bases de datos y reportes prácticos." />
+  <meta property="og:description" content="Conecto Excel, WhatsApp, APIs y bases de datos para convertir procesos manuales en sistemas internos y reportes prácticos." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_DO" />
   <meta name="theme-color" content="#0f2d6b" />
@@ -15,21 +15,25 @@
   <link rel="apple-touch-icon" href="./assets/favicon.svg?v=3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #0f2d6b;
+      --navy: #0b234f;
       --blue: #2459a6;
-      --teal: #18a8a8;
+      --teal: #12b8b8;
+      --cyan: #5fd7ff;
+      --code: #6d5dfc;
       --ink: #182230;
       --muted: #667085;
-      --soft: #f3f7fb;
+      --soft: #f2f7fb;
       --surface: #ffffff;
       --surface-2: #eef6f7;
       --line: #d8e1ea;
-      --shadow: 0 24px 70px rgba(18, 34, 64, 0.12);
+      --shadow: 0 24px 70px rgba(15, 35, 79, 0.12);
       --radius: 8px;
       --max: 1180px;
+      --font-main: 'Sora', Arial, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
     }
 
     * {
@@ -42,10 +46,15 @@
 
     body {
       margin: 0;
-      background: #fbfdff;
+      background:
+        linear-gradient(90deg, rgba(216, 225, 234, 0.32) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(216, 225, 234, 0.28) 1px, transparent 1px),
+        #fbfdff;
+      background-size: 44px 44px;
       color: var(--ink);
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: var(--font-main);
       line-height: 1.55;
+      overflow-x: hidden;
     }
 
     a {
@@ -64,7 +73,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(251, 253, 255, 0.92);
+      background: rgba(251, 253, 255, 0.9);
       border-bottom: 1px solid rgba(216, 225, 234, 0.9);
       backdrop-filter: blur(18px);
     }
@@ -115,6 +124,7 @@
 
     .brand-text span {
       color: var(--muted);
+      font-family: var(--font-mono);
       font-size: 12px;
       margin-top: 2px;
     }
@@ -128,7 +138,8 @@
     .nav-links a {
       border-radius: 999px;
       color: #344054;
-      font-size: 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
       font-weight: 700;
       padding: 10px 13px;
       transition: background 180ms ease, color 180ms ease;
@@ -174,6 +185,7 @@
       font-weight: 800;
       line-height: 1;
       cursor: pointer;
+      letter-spacing: 0;
       transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
     }
 
@@ -186,13 +198,13 @@
     .button-primary {
       background: var(--teal);
       color: white;
-      box-shadow: 0 16px 34px rgba(24, 168, 168, 0.24);
+      box-shadow: 0 16px 34px rgba(18, 184, 184, 0.24);
     }
 
     .button-primary:hover,
     .button-primary:focus-visible {
-      background: #129898;
-      box-shadow: 0 20px 42px rgba(24, 168, 168, 0.3);
+      background: #0f9f9f;
+      box-shadow: 0 20px 42px rgba(18, 184, 184, 0.3);
     }
 
     .button-secondary {
@@ -214,14 +226,19 @@
       display: grid;
       grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
       gap: 56px;
-      align-items: center;
-      background: linear-gradient(135deg, #fbfdff 0%, #f5f9ff 48%, #eef8f8 100%);
+      align-items: start;
+      background:
+        linear-gradient(90deg, rgba(216, 225, 234, 0.4) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(216, 225, 234, 0.32) 1px, transparent 1px),
+        linear-gradient(135deg, #fbfdff 0%, #f5f9ff 48%, #eefafa 100%);
+      background-size: 42px 42px, 42px 42px, auto;
       box-shadow: 0 0 0 100vmax #fbfdff;
       clip-path: inset(0 -100vmax);
     }
 
     .hero-copy {
       max-width: 670px;
+      min-width: 0;
     }
 
     .availability-badge {
@@ -232,6 +249,7 @@
       border-radius: 999px;
       background: #eef8f8;
       color: #0c6666;
+      font-family: var(--font-mono);
       font-size: 13px;
       font-weight: 700;
       padding: 6px 14px;
@@ -245,6 +263,10 @@
       background: var(--teal);
       flex-shrink: 0;
       animation: pulse 2s ease-in-out infinite;
+    }
+
+    .availability-badge span:last-child {
+      min-width: 0;
     }
 
     @keyframes pulse {
@@ -268,7 +290,7 @@
     h1 {
       margin-bottom: 16px;
       color: var(--navy);
-      font-size: clamp(44px, 7vw, 76px);
+      font-size: clamp(44px, 6.7vw, 74px);
       font-weight: 800;
       line-height: 0.96;
       letter-spacing: 0;
@@ -284,6 +306,7 @@
 
     .hero-location {
       color: var(--muted);
+      font-family: var(--font-mono);
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 14px;
@@ -315,7 +338,7 @@
       border: 1px solid var(--line);
       border-left: 3px solid var(--teal);
       border-radius: var(--radius);
-      background: white;
+      background: rgba(255, 255, 255, 0.82);
       padding: 14px;
       min-height: 84px;
     }
@@ -323,6 +346,7 @@
     .signal strong {
       display: block;
       color: var(--navy);
+      font-family: var(--font-mono);
       font-size: 22px;
       line-height: 1;
       margin-bottom: 8px;
@@ -338,14 +362,15 @@
 
     .hero-visual {
       position: relative;
+      min-width: 0;
     }
 
     .system-preview {
       overflow: hidden;
-      border: 1px solid #c9d6e2;
-      border-radius: var(--radius);
-      background: white;
-      box-shadow: var(--shadow);
+      border: 1px solid rgba(95, 215, 255, 0.28);
+      border-radius: 14px;
+      background: #07162f;
+      box-shadow: 0 34px 90px rgba(7, 22, 47, 0.24);
     }
 
     .preview-top {
@@ -354,7 +379,7 @@
       justify-content: space-between;
       gap: 16px;
       padding: 16px 18px;
-      background: var(--navy);
+      background: linear-gradient(90deg, #07162f, #0b234f);
       color: white;
     }
 
@@ -371,20 +396,29 @@
     }
 
     .preview-top strong {
+      font-family: var(--font-mono);
       font-size: 13px;
       letter-spacing: 0;
     }
 
     .preview-body {
       display: grid;
-      grid-template-columns: 0.72fr 1.28fr;
+      grid-template-columns: 0.95fr 1.05fr;
       min-height: 430px;
+      background:
+        linear-gradient(90deg, rgba(95, 215, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(95, 215, 255, 0.07) 1px, transparent 1px),
+        #07162f;
+      background-size: 28px 28px;
     }
 
     .preview-sidebar {
+      display: grid;
+      gap: 16px;
+      align-content: start;
       padding: 18px;
-      background: #f7fafc;
-      border-right: 1px solid var(--line);
+      background: rgba(8, 24, 51, 0.92);
+      border-right: 1px solid rgba(95, 215, 255, 0.18);
     }
 
     .mini-profile {
@@ -434,6 +468,131 @@
       align-content: start;
     }
 
+    .terminal-panel {
+      overflow: hidden;
+      border: 1px solid rgba(95, 215, 255, 0.24);
+      border-radius: var(--radius);
+      background: #061126;
+      color: #d8f8ff;
+      font-family: var(--font-mono);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .terminal-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 40px;
+      border-bottom: 1px solid rgba(95, 215, 255, 0.18);
+      padding: 0 12px;
+      color: #8fb9c6;
+      font-size: 11px;
+    }
+
+    .terminal-body {
+      padding: 14px;
+      display: grid;
+      gap: 9px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .code-line {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .code-line .prompt {
+      color: var(--cyan);
+    }
+
+    .code-line .method {
+      color: #79f2c0;
+    }
+
+    .code-line .key {
+      color: #9fc5ff;
+    }
+
+    .code-line .value {
+      color: #fff2a8;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1em;
+      margin-left: 3px;
+      background: var(--cyan);
+      vertical-align: -0.12em;
+      animation: cursor-blink 1s steps(2, start) infinite;
+    }
+
+    @keyframes cursor-blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .integration-map {
+      display: grid;
+      gap: 12px;
+    }
+
+    .integration-map h3,
+    .pipeline h3 {
+      margin-bottom: 12px;
+      color: #eaf8ff;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    .node-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .tech-node {
+      position: relative;
+      border: 1px solid rgba(95, 215, 255, 0.22);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      color: #d8f8ff;
+      padding: 12px;
+      min-height: 76px;
+    }
+
+    .tech-node::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      right: 13px;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--teal);
+      box-shadow: 0 0 18px rgba(18, 184, 184, 0.7);
+    }
+
+    .tech-node span {
+      display: block;
+      color: #90adbd;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .tech-node strong {
+      display: block;
+      color: #f8fbff;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
     .metric-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -441,15 +600,16 @@
     }
 
     .metric {
-      border: 1px solid var(--line);
+      border: 1px solid rgba(95, 215, 255, 0.22);
       border-radius: var(--radius);
       padding: 12px;
-      background: white;
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .metric span {
       display: block;
-      color: var(--muted);
+      color: #90adbd;
+      font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
@@ -459,21 +619,23 @@
 
     .metric strong {
       display: block;
-      color: var(--navy);
+      color: #f8fbff;
+      font-family: var(--font-mono);
       font-size: 20px;
       line-height: 1;
     }
 
     .pipeline {
-      border: 1px solid var(--line);
+      border: 1px solid rgba(95, 215, 255, 0.22);
       border-radius: var(--radius);
       padding: 15px;
-      background: #fbfdff;
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .pipeline h3 {
       margin-bottom: 12px;
-      color: var(--navy);
+      color: #eaf8ff;
+      font-family: var(--font-mono);
       font-size: 15px;
     }
 
@@ -486,11 +648,11 @@
     .flow-step {
       position: relative;
       min-height: 42px;
-      border: 1px solid #cdeaea;
+      border: 1px solid rgba(95, 215, 255, 0.24);
       border-radius: var(--radius);
-      background: #f0fbfb;
+      background: rgba(18, 184, 184, 0.1);
       padding: 9px 10px;
-      color: #0c6666;
+      color: #d8f8ff;
       display: grid;
       grid-template-columns: 24px minmax(0, 1fr);
       gap: 10px;
@@ -498,6 +660,7 @@
       font-size: 12.5px;
       font-weight: 800;
       line-height: 1.2;
+      font-family: var(--font-mono);
     }
 
     .flow-step span {
@@ -507,7 +670,7 @@
       height: 24px;
       border-radius: 999px;
       background: var(--teal);
-      color: white;
+      color: #03121d;
       font-size: 11px;
     }
 
@@ -520,9 +683,9 @@
 
     .data-table {
       overflow: hidden;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(95, 215, 255, 0.22);
       border-radius: var(--radius);
-      background: white;
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .table-row {
@@ -532,8 +695,9 @@
       align-items: center;
       min-height: 40px;
       padding: 0 12px;
-      border-bottom: 1px solid #edf2f7;
-      color: #475467;
+      border-bottom: 1px solid rgba(95, 215, 255, 0.14);
+      color: #b8d0dc;
+      font-family: var(--font-mono);
       font-size: 12px;
     }
 
@@ -550,8 +714,8 @@
 
     .table-row.header {
       min-height: 36px;
-      background: #f8fafc;
-      color: var(--muted);
+      background: rgba(255, 255, 255, 0.07);
+      color: #90adbd;
       font-size: 10.5px;
       font-weight: 800;
       text-transform: uppercase;
@@ -564,8 +728,9 @@
       width: fit-content;
       border-radius: 999px;
       padding: 5px 8px;
-      background: #eef8f8;
-      color: #0c6666;
+      background: rgba(18, 184, 184, 0.16);
+      color: #8df6f6;
+      font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 800;
     }
@@ -704,8 +869,9 @@
     .client-types span {
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: white;
+      background: rgba(255, 255, 255, 0.82);
       color: var(--muted);
+      font-family: var(--font-mono);
       font-size: 13px;
       font-weight: 700;
       padding: 6px 14px;
@@ -715,7 +881,9 @@
       min-height: 240px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: white;
+      background:
+        linear-gradient(180deg, rgba(95, 215, 255, 0.06), transparent 44px),
+        white;
       padding: 22px;
       transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
@@ -748,11 +916,12 @@
       border-radius: 999px;
       background: var(--teal);
       color: white;
+      font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 800;
       padding: 4px 10px;
       letter-spacing: 0.02em;
-      box-shadow: 0 10px 22px rgba(24, 168, 168, 0.22);
+      box-shadow: 0 10px 22px rgba(18, 184, 184, 0.22);
     }
 
     .service-icon {
@@ -777,6 +946,15 @@
       color: var(--navy);
       font-size: 19px;
       line-height: 1.2;
+    }
+
+    .service-meta {
+      display: inline-flex;
+      margin-bottom: 12px;
+      color: var(--code);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
     }
 
     .service-card p {
@@ -890,6 +1068,7 @@
       border-radius: 999px;
       background: #effafa;
       color: #0d6f6f;
+      font-family: var(--font-mono);
       padding: 7px 10px;
       font-size: 12px;
       font-weight: 800;
@@ -900,8 +1079,12 @@
       min-height: 330px;
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid #d2dde8;
-      background: #f8fafc;
+      border: 1px solid rgba(95, 215, 255, 0.24);
+      background:
+        linear-gradient(90deg, rgba(95, 215, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(95, 215, 255, 0.07) 1px, transparent 1px),
+        #07162f;
+      background-size: 28px 28px;
     }
 
     .visual-header {
@@ -910,14 +1093,61 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #101f4f;
+      background: linear-gradient(90deg, #07162f, #0b234f);
       color: white;
+      font-family: var(--font-mono);
       font-size: 12px;
       font-weight: 800;
     }
 
     .visual-body {
       padding: 18px;
+    }
+
+    .project-flow {
+      display: grid;
+      gap: 12px;
+    }
+
+    .project-node {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      border: 1px solid rgba(95, 215, 255, 0.22);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 12px;
+      color: #d8f8ff;
+    }
+
+    .project-node-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: rgba(18, 184, 184, 0.16);
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .project-node span {
+      display: block;
+      color: #90adbd;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .project-node strong {
+      color: #f8fbff;
+      font-size: 14px;
+      line-height: 1.25;
     }
 
     .visual-kpis {
@@ -928,15 +1158,16 @@
     }
 
     .visual-kpis div {
-      border: 1px solid var(--line);
+      border: 1px solid rgba(95, 215, 255, 0.22);
       border-radius: var(--radius);
-      background: white;
+      background: rgba(255, 255, 255, 0.06);
       padding: 12px;
     }
 
     .visual-kpis span {
       display: block;
-      color: var(--muted);
+      color: #90adbd;
+      font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 800;
       text-transform: uppercase;
@@ -944,7 +1175,8 @@
     }
 
     .visual-kpis strong {
-      color: var(--navy);
+      color: #f8fbff;
+      font-family: var(--font-mono);
       font-size: 19px;
     }
 
@@ -955,9 +1187,9 @@
 
     .visual-line {
       height: 42px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(95, 215, 255, 0.2);
       border-radius: var(--radius);
-      background: white;
+      background: rgba(255, 255, 255, 0.06);
       display: grid;
       grid-template-columns: 1fr 90px;
       align-items: center;
@@ -968,7 +1200,7 @@
     .bar {
       height: 8px;
       border-radius: 999px;
-      background: #e8eef5;
+      background: rgba(255, 255, 255, 0.1);
       overflow: hidden;
     }
 
@@ -980,7 +1212,8 @@
     }
 
     .visual-line strong {
-      color: #344054;
+      color: #d8f8ff;
+      font-family: var(--font-mono);
       font-size: 12px;
       text-align: right;
     }
@@ -990,15 +1223,19 @@
       min-height: 330px;
       display: grid;
       place-items: center;
-      background: linear-gradient(145deg, #f6fbff, #eaf4f4);
+      background:
+        linear-gradient(90deg, rgba(95, 215, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(95, 215, 255, 0.07) 1px, transparent 1px),
+        #07162f;
+      background-size: 28px 28px;
     }
 
     .phone-frame {
       width: min(250px, 76%);
       min-height: 290px;
-      border: 10px solid #15233f;
+      border: 10px solid #0b162d;
       border-radius: 26px;
-      background: white;
+      background: #061126;
       box-shadow: 0 22px 60px rgba(18, 34, 64, 0.18);
       overflow: hidden;
     }
@@ -1008,8 +1245,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--navy);
+      background: #0b234f;
       color: white;
+      font-family: var(--font-mono);
       font-size: 12px;
       font-weight: 800;
     }
@@ -1020,15 +1258,49 @@
       gap: 10px;
     }
 
+    .runtime-panel {
+      width: min(330px, 86%);
+      border: 1px solid rgba(95, 215, 255, 0.24);
+      border-radius: var(--radius);
+      background: rgba(6, 17, 38, 0.96);
+      color: #d8f8ff;
+      font-family: var(--font-mono);
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .runtime-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid rgba(95, 215, 255, 0.16);
+      padding: 12px 14px;
+      font-size: 12px;
+    }
+
+    .runtime-row:last-child {
+      border-bottom: 0;
+    }
+
+    .runtime-row span {
+      color: #90adbd;
+    }
+
+    .runtime-row strong {
+      color: #79f2c0;
+    }
+
     .budget-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(95, 215, 255, 0.18);
       border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
       padding: 10px;
       font-size: 12px;
-      color: #344054;
+      color: #d8f8ff;
+      font-family: var(--font-mono);
     }
 
     .budget-row strong {
@@ -1066,6 +1338,7 @@
     .process-step span {
       display: block;
       color: var(--teal);
+      font-family: var(--font-mono);
       font-size: 13px;
       font-weight: 900;
       margin-bottom: 14px;
@@ -1165,6 +1438,7 @@
     .work-card h3 {
       margin-bottom: 14px;
       color: var(--navy);
+      font-family: var(--font-mono);
       font-size: 18px;
     }
 
@@ -1178,6 +1452,7 @@
       border-radius: 999px;
       background: #f1f5f9;
       color: #334155;
+      font-family: var(--font-mono);
       padding: 7px 10px;
       font-size: 12px;
       font-weight: 700;
@@ -1276,6 +1551,7 @@
 
     .contact-link span {
       color: #aebee6;
+      font-family: var(--font-mono);
       font-size: 12px;
       font-weight: 800;
       text-transform: uppercase;
@@ -1357,7 +1633,7 @@
     select:focus,
     textarea:focus {
       border-color: var(--teal);
-      box-shadow: 0 0 0 4px rgba(24, 168, 168, 0.12);
+      box-shadow: 0 0 0 4px rgba(18, 184, 184, 0.12);
     }
 
     textarea {
@@ -1434,7 +1710,7 @@
 
     @media (max-width: 760px) {
       .nav {
-        width: min(calc(100% - 28px), var(--max));
+        width: min(calc(100vw - 28px), var(--max));
         min-height: 66px;
       }
 
@@ -1478,7 +1754,7 @@
       .section-inner,
       .contact-layout,
       .footer-inner {
-        width: min(calc(100% - 28px), var(--max));
+        width: min(calc(100vw - 34px), var(--max));
       }
 
       .hero {
@@ -1496,6 +1772,8 @@
       .section-head p,
       .contact-copy p {
         font-size: 16px;
+        max-width: 100%;
+        overflow-wrap: break-word;
       }
 
       .signal-row,
@@ -1514,10 +1792,14 @@
 
       .preview-sidebar {
         border-right: 0;
-        border-bottom: 1px solid var(--line);
+        border-bottom: 1px solid rgba(95, 215, 255, 0.18);
       }
 
       .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .node-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1561,6 +1843,38 @@
 
       .brand-text strong {
         font-size: 14px;
+      }
+
+      .nav,
+      .hero,
+      .section-inner,
+      .contact-layout,
+      .footer-inner {
+        width: min(calc(100vw - 48px), var(--max));
+      }
+
+      .hero-title,
+      .hero-summary {
+        font-size: 15px;
+      }
+
+      .hero-copy,
+      .hero-actions,
+      .signal-row {
+        max-width: min(100%, 340px);
+      }
+
+      .availability-badge {
+        align-items: flex-start;
+        max-width: 100%;
+        border-radius: var(--radius);
+        font-size: 11px;
+        line-height: 1.4;
+        padding: 7px 10px;
+      }
+
+      .availability-dot {
+        margin-top: 4px;
       }
 
       .hero-actions,
@@ -1658,7 +1972,7 @@
         <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
           <rect x="6" y="6" width="52" height="52" rx="13" fill="#f8fbff" stroke="currentColor" stroke-width="4"></rect>
           <path fill="currentColor" d="M18 20h7v17.2c0 5.3-3.4 8.8-8.7 8.8-2.5 0-4.6-.6-6.3-1.8l2.2-5.4c1.1.7 2.2 1 3.4 1 1.6 0 2.4-1 2.4-3V20Zm12 0h12.4c5.7 0 9.3 3.1 9.3 8.1 0 3.4-1.7 6-4.7 7.2l5.5 10.3h-7.8l-4.8-9.1H37v9.1h-7V20Zm7 5.8v5.4h4.7c1.9 0 3-1 3-2.7s-1.1-2.7-3-2.7H37Z"></path>
-          <rect x="24" y="48" width="16" height="4" rx="2" fill="#18a8a8"></rect>
+          <rect x="24" y="48" width="16" height="4" rx="2" fill="#12b8b8"></rect>
         </svg>
         <span class="brand-text">
           <strong>José Rivas</strong>
@@ -1695,7 +2009,7 @@
         <p class="hero-location">📍 Santo Domingo, RD</p>
         <p class="hero-title">Desarrollador Backend y Automatización para Negocios</p>
         <p class="hero-summary">
-          Ayudo a negocios a convertir procesos manuales en sistemas internos, APIs, bases de datos y reportes prácticos.
+          Conecto Excel, WhatsApp, APIs y bases de datos para convertir procesos manuales en sistemas internos y reportes prácticos.
         </p>
 
         <div class="hero-actions">
@@ -1719,47 +2033,63 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-label="Vista representativa de un sistema interno">
+      <div class="hero-visual" aria-label="Vista representativa de automatización backend">
         <div class="system-preview">
           <div class="preview-top">
             <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-            <strong>Panel operativo interno</strong>
+            <strong>backend_automation.py</strong>
           </div>
 
           <div class="preview-body">
             <aside class="preview-sidebar">
-              <div class="mini-profile">
-                <strong>Negocio conectado</strong>
-                <span>Inventario, órdenes, reportes y APIs</span>
+              <div class="terminal-panel">
+                <div class="terminal-toolbar">
+                  <span>api/request</span>
+                  <span>200 OK</span>
+                </div>
+                <div class="terminal-body">
+                  <p class="code-line"><span class="prompt">&gt;</span> <span class="method">POST</span> /ordenes/sync</p>
+                  <p class="code-line">{</p>
+                  <p class="code-line">&nbsp; "<span class="key">source</span>": "<span class="value">whatsapp</span>",</p>
+                  <p class="code-line">&nbsp; "<span class="key">db</span>": "<span class="value">sql_ready</span>",</p>
+                  <p class="code-line">&nbsp; "<span class="key">report</span>": "<span class="value">pdf_generated</span>"</p>
+                  <p class="code-line">}<span class="cursor"></span></p>
+                </div>
               </div>
-              <div class="side-row"><span class="side-icon">01</span> Órdenes</div>
-              <div class="side-row"><span class="side-icon">02</span> Inventario</div>
-              <div class="side-row"><span class="side-icon">03</span> Clientes</div>
-              <div class="side-row"><span class="side-icon">04</span> Reportes</div>
+
+              <div class="data-table" aria-label="Estado de jobs automatizados">
+                <div class="table-row header"><span>Job</span><span>Estado</span><span>Salida</span></div>
+                <div class="table-row"><span>sync_stock</span><span class="status">OK</span><span>SQL</span></div>
+                <div class="table-row"><span>daily_report</span><span class="status">OK</span><span>PDF</span></div>
+                <div class="table-row"><span>client_alert</span><span class="status">OK</span><span>Bot</span></div>
+              </div>
             </aside>
 
             <div class="preview-main">
               <div class="metric-grid">
-                <div class="metric"><span>Tareas</span><strong>Auto</strong></div>
-                <div class="metric"><span>Datos</span><strong>SQL</strong></div>
-                <div class="metric"><span>Salida</span><strong>PDF</strong></div>
+                <div class="metric"><span>Trigger</span><strong>cron</strong></div>
+                <div class="metric"><span>Storage</span><strong>SQL</strong></div>
+                <div class="metric"><span>Deploy</span><strong>API</strong></div>
               </div>
 
               <div class="pipeline">
-                <h3>Flujo automatizado</h3>
+                <h3>request - validate - database - report</h3>
                 <div class="flow">
-                  <div class="flow-step"><span>1</span><strong>Captura de datos</strong></div>
-                  <div class="flow-step"><span>2</span><strong>Validación backend</strong></div>
-                  <div class="flow-step"><span>3</span><strong>Reporte listo</strong></div>
-                  <div class="flow-step"><span>4</span><strong>Notificación automática</strong></div>
+                  <div class="flow-step"><span>01</span><strong>captura de datos</strong></div>
+                  <div class="flow-step"><span>02</span><strong>validacion backend</strong></div>
+                  <div class="flow-step"><span>03</span><strong>consulta SQL</strong></div>
+                  <div class="flow-step"><span>04</span><strong>PDF + notificacion</strong></div>
                 </div>
               </div>
 
-              <div class="data-table">
-                <div class="table-row header"><span>Proceso</span><span>Estado</span><span>Entrega</span></div>
-                <div class="table-row"><span>Órdenes del día</span><span class="status">Listo</span><span>CSV</span></div>
-                <div class="table-row"><span>Stock bajo</span><span class="status">Listo</span><span>Alerta</span></div>
-                <div class="table-row"><span>Cierre semanal</span><span class="status">Listo</span><span>PDF</span></div>
+              <div class="integration-map">
+                <h3>integraciones conectadas</h3>
+                <div class="node-grid">
+                  <div class="tech-node"><span>input</span><strong>Excel / CSV</strong></div>
+                  <div class="tech-node"><span>channel</span><strong>WhatsApp</strong></div>
+                  <div class="tech-node"><span>service</span><strong>REST API</strong></div>
+                  <div class="tech-node"><span>output</span><strong>Reportes PDF</strong></div>
+                </div>
               </div>
             </div>
           </div>
@@ -1845,6 +2175,7 @@
                 <path d="M4.9 19.1 6.3 17m11.4 0 1.4 2.1M2 12h3m14 0h3M4.9 4.9 6.3 7m11.4 0 1.4-2.1M12 2v3m0 14v3"></path>
               </svg>
             </div>
+            <span class="service-meta">scripts / cron / bots</span>
             <h3>Automatización de procesos</h3>
             <p>Scripts, bots, manejo de archivos, reportes automáticos, generación de PDF/CSV y reducción de tareas repetitivas.</p>
           </article>
@@ -1855,6 +2186,7 @@
                 <path d="M9 7V3m6 4V3m-3 14v4m-5 0h10"></path>
               </svg>
             </div>
+            <span class="service-meta">REST / auth / webhooks</span>
             <h3>APIs y backend</h3>
             <p>APIs REST con FastAPI o Django, conexión a bases de datos, autenticación e integración con servicios externos.</p>
           </article>
@@ -1865,6 +2197,7 @@
                 <path d="M3 9h18M9 9v11m6-7h3m-3 4h3"></path>
               </svg>
             </div>
+            <span class="service-meta">admin / login / CRUD</span>
             <h3>Sistemas internos</h3>
             <p>Herramientas con login, clientes, productos, inventario, órdenes, reservas, pagos y panel administrativo.</p>
           </article>
@@ -1878,6 +2211,7 @@
                 <rect x="17" y="4" width="3" height="12" rx="1"></rect>
               </svg>
             </div>
+            <span class="service-meta">SQL / PDF / dashboards</span>
             <h3>Datos y reportes</h3>
             <p>Modelado de bases de datos, consultas SQL, dashboards básicos y reportes para ventas, inventario y operaciones.</p>
           </article>
@@ -1920,20 +2254,27 @@
 
             <div class="project-visual" aria-label="Visual de automatización para Willy Chic">
               <div class="visual-header">
-                <span>Automatización operativa</span>
-                <span>API + Bot + Reportes</span>
+                <span>willy_chic_flow</span>
+                <span>API + Bot + DB</span>
               </div>
               <div class="visual-body">
-                <div class="visual-kpis">
-                  <div><span>Entrada</span><strong>API</strong></div>
-                  <div><span>Proceso</span><strong>Bot</strong></div>
-                  <div><span>Salida</span><strong>PDF</strong></div>
-                </div>
-                <div class="visual-lines">
-                  <div class="visual-line"><div class="bar"><span style="width: 88%"></span></div><strong>Validación</strong></div>
-                  <div class="visual-line"><div class="bar"><span style="width: 74%"></span></div><strong>Webhook</strong></div>
-                  <div class="visual-line"><div class="bar"><span style="width: 92%"></span></div><strong>Reporte</strong></div>
-                  <div class="visual-line"><div class="bar"><span style="width: 68%"></span></div><strong>Alerta</strong></div>
+                <div class="project-flow">
+                  <div class="project-node">
+                    <div class="project-node-icon">BOT</div>
+                    <div><span>telegram webhook</span><strong>Captura mensajes y comandos operativos</strong></div>
+                  </div>
+                  <div class="project-node">
+                    <div class="project-node-icon">API</div>
+                    <div><span>backend service</span><strong>Valida reglas de negocio e integra servicios externos</strong></div>
+                  </div>
+                  <div class="project-node">
+                    <div class="project-node-icon">SQL</div>
+                    <div><span>data layer</span><strong>Guarda datos estructurados para consultas y reportes</strong></div>
+                  </div>
+                  <div class="project-node">
+                    <div class="project-node-icon">PDF</div>
+                    <div><span>output</span><strong>Entrega reportes y alertas listas para el negocio</strong></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1956,16 +2297,17 @@
               </div>
             </div>
 
-            <div class="project-visual phone-visual" aria-label="Visual de aplicación de presupuesto">
-              <div class="phone-frame">
-                <div class="phone-top">Rivas Budget Planning</div>
-                <div class="phone-content">
-                  <div class="budget-row"><span>Ingreso mensual</span><strong>OK</strong></div>
-                  <div class="budget-row"><span>Gastos fijos</span><strong>72%</strong></div>
-                  <div class="budget-row"><span>Ahorro</span><strong>18%</strong></div>
-                  <div class="budget-row"><span>Reporte PDF</span><strong>Listo</strong></div>
-                  <div class="budget-row"><span>Backup</span><strong>Activo</strong></div>
+            <div class="project-visual phone-visual" aria-label="Visual técnico de aplicación de presupuesto">
+              <div class="runtime-panel">
+                <div class="visual-header">
+                  <span>rivas_budget_runtime</span>
+                  <span>Flutter + SQLite</span>
                 </div>
+                <div class="runtime-row"><span>local_db.sqlite</span><strong>mounted</strong></div>
+                <div class="runtime-row"><span>generate_report()</span><strong>PDF ready</strong></div>
+                <div class="runtime-row"><span>export_csv()</span><strong>complete</strong></div>
+                <div class="runtime-row"><span>backup_service</span><strong>active</strong></div>
+                <div class="runtime-row"><span>license_check</span><strong>valid</strong></div>
               </div>
             </div>
           </article>
