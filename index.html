@@ -1258,36 +1258,48 @@
       gap: 10px;
     }
 
-    .runtime-panel {
-      width: min(330px, 86%);
+    .video-frame {
+      width: min(440px, 92%);
       border: 1px solid rgba(95, 215, 255, 0.24);
       border-radius: var(--radius);
       background: rgba(6, 17, 38, 0.96);
-      color: #d8f8ff;
-      font-family: var(--font-mono);
       overflow: hidden;
       box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2);
     }
 
-    .runtime-row {
+    .video-top {
+      min-height: 42px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 14px;
       border-bottom: 1px solid rgba(95, 215, 255, 0.16);
-      padding: 12px 14px;
-      font-size: 12px;
+      padding: 0 14px;
+      color: #d8f8ff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
     }
 
-    .runtime-row:last-child {
-      border-bottom: 0;
-    }
-
-    .runtime-row span {
-      color: #90adbd;
-    }
-
-    .runtime-row strong {
+    .video-top span:last-child {
       color: #79f2c0;
+    }
+
+    .rbp-demo-video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #061126;
+    }
+
+    .video-caption {
+      margin: 0;
+      border-top: 1px solid rgba(95, 215, 255, 0.16);
+      padding: 10px 14px 12px;
+      color: #90adbd;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.45;
     }
 
     .budget-row {
@@ -2171,8 +2183,15 @@
             <span class="badge-top">Más solicitado</span>
             <div class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path>
-                <path d="M4.9 19.1 6.3 17m11.4 0 1.4 2.1M2 12h3m14 0h3M4.9 4.9 6.3 7m11.4 0 1.4-2.1M12 2v3m0 14v3"></path>
+                <path d="M12 4v3"></path>
+                <circle cx="12" cy="3" r="1"></circle>
+                <rect x="5" y="7" width="14" height="11" rx="3"></rect>
+                <path d="M3 12h2m14 0h2"></path>
+                <circle cx="9" cy="12" r="1"></circle>
+                <circle cx="15" cy="12" r="1"></circle>
+                <path d="M9 15h6"></path>
+                <path d="M7 21h10"></path>
+                <path d="M10 18l-1 3m5-3 1 3"></path>
               </svg>
             </div>
             <span class="service-meta">scripts / cron / bots</span>
@@ -2298,16 +2317,16 @@
             </div>
 
             <div class="project-visual phone-visual" aria-label="Visual técnico de aplicación de presupuesto">
-              <div class="runtime-panel">
-                <div class="visual-header">
-                  <span>rivas_budget_runtime</span>
+              <div class="video-frame">
+                <div class="video-top">
+                  <span>rbp_demo.mp4</span>
                   <span>Flutter + SQLite</span>
                 </div>
-                <div class="runtime-row"><span>local_db.sqlite</span><strong>mounted</strong></div>
-                <div class="runtime-row"><span>generate_report()</span><strong>PDF ready</strong></div>
-                <div class="runtime-row"><span>export_csv()</span><strong>complete</strong></div>
-                <div class="runtime-row"><span>backup_service</span><strong>active</strong></div>
-                <div class="runtime-row"><span>license_check</span><strong>valid</strong></div>
+                <video class="rbp-demo-video" controls preload="metadata" playsinline poster="assets/rbp-demo-poster.jpg">
+                  <source src="assets/rbp-demo.mp4" type="video/mp4">
+                  Tu navegador no soporta video HTML5.
+                </video>
+                <p class="video-caption">Demo real de la app: flujo de presupuesto, reportes y datos locales.</p>
               </div>
             </div>
           </article>
