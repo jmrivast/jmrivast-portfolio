@@ -152,6 +152,42 @@
       outline: none;
     }
 
+    .language-switch {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .language-switch select {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--navy);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 0 12px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .language-switch select:focus-visible {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(18, 184, 184, 0.12);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .menu-toggle {
       display: none;
       width: 42px;
@@ -1988,25 +2024,33 @@
         </svg>
         <span class="brand-text">
           <strong>José Rivas</strong>
-          <span>Backend y automatización</span>
+          <span data-i18n="brand.subtitle">Backend y automatización</span>
         </span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" data-i18n-attr="aria-label:nav.menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
       <div class="nav-links">
-        <a href="#servicios">Servicios</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#servicios" data-i18n="nav.services">Servicios</a>
+        <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+        <a href="#proceso" data-i18n="nav.process">Proceso</a>
+        <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </div>
 
-      <a class="button button-primary" href="https://wa.me/18292222172?text=Hola%20Jos%C3%A9%2C%20quiero%20hablar%20sobre%20un%20proyecto%20freelance." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <div class="language-switch">
+        <label class="sr-only" for="languageSelect" data-i18n="language.label">Idioma</label>
+        <select id="languageSelect" aria-label="Idioma">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+
+      <a class="button button-primary" id="navWhatsappLink" data-i18n="nav.whatsapp" href="https://wa.me/18292222172?text=Hola%20Jos%C3%A9%2C%20quiero%20hablar%20sobre%20un%20proyecto%20freelance." target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </nav>
   </header>
 
@@ -2015,32 +2059,32 @@
       <div class="hero-copy">
         <div class="availability-badge">
           <span class="availability-dot"></span>
-          <span>Disponible para nuevos proyectos <strong id="availability-date">en abril 2026</strong></span>
+          <span><span data-i18n="availability.prefix">Disponible para nuevos proyectos</span> <strong id="availability-date">en abril 2026</strong></span>
         </div>
         <h1 id="hero-title">José Manuel Rivas Tineo</h1>
-        <p class="hero-location">📍 Santo Domingo, RD</p>
-        <p class="hero-title">Desarrollador Backend y Automatización para Negocios</p>
+        <p class="hero-location" data-i18n="hero.location">📍 Santo Domingo, RD</p>
+        <p class="hero-title" data-i18n="hero.title">Desarrollador Backend y Automatización para Negocios</p>
         <p class="hero-summary">
-          Conecto Excel, WhatsApp, APIs y bases de datos para convertir procesos manuales en sistemas internos y reportes prácticos.
+          <span data-i18n="hero.summary">Conecto Excel, WhatsApp, APIs y bases de datos para convertir procesos manuales en sistemas internos y reportes prácticos.</span>
         </p>
 
         <div class="hero-actions">
-          <a class="button button-primary" href="#contacto">Hablemos de tu proyecto</a>
-          <a class="button button-secondary" href="#proyectos">Ver proyectos</a>
+          <a class="button button-primary" href="#contacto" data-i18n="hero.ctaPrimary">Hablemos de tu proyecto</a>
+          <a class="button button-secondary" href="#proyectos" data-i18n="hero.ctaSecondary">Ver proyectos</a>
         </div>
 
         <div class="signal-row" aria-label="Áreas de especialidad">
           <div class="signal">
             <strong>APIs</strong>
-            <span>FastAPI, Django, REST e integraciones externas.</span>
+            <span data-i18n="hero.signalApis">FastAPI, Django, REST e integraciones externas.</span>
           </div>
           <div class="signal">
-            <strong>Datos</strong>
-            <span>SQL Server, MySQL, SQLite, modelado y reportes.</span>
+            <strong data-i18n="hero.signalDataTitle">Datos</strong>
+            <span data-i18n="hero.signalData">SQL Server, MySQL, SQLite, modelado y reportes.</span>
           </div>
           <div class="signal">
-            <strong>Flujos</strong>
-            <span>Automatización, bots, PDF/CSV y sistemas internos.</span>
+            <strong data-i18n="hero.signalFlowsTitle">Flujos</strong>
+            <span data-i18n="hero.signalFlows">Automatización, bots, PDF/CSV y sistemas internos.</span>
           </div>
         </div>
       </div>
@@ -2070,7 +2114,7 @@
               </div>
 
               <div class="data-table" aria-label="Estado de jobs automatizados">
-                <div class="table-row header"><span>Job</span><span>Estado</span><span>Salida</span></div>
+                <div class="table-row header"><span>Job</span><span data-i18n="mock.status">Estado</span><span data-i18n="mock.output">Salida</span></div>
                 <div class="table-row"><span>sync_stock</span><span class="status">OK</span><span>SQL</span></div>
                 <div class="table-row"><span>daily_report</span><span class="status">OK</span><span>PDF</span></div>
                 <div class="table-row"><span>client_alert</span><span class="status">OK</span><span>Bot</span></div>
@@ -2085,22 +2129,22 @@
               </div>
 
               <div class="pipeline">
-                <h3>request - validate - database - report</h3>
+                <h3 data-i18n="mock.pipelineTitle">request - validate - database - report</h3>
                 <div class="flow">
-                  <div class="flow-step"><span>01</span><strong>captura de datos</strong></div>
-                  <div class="flow-step"><span>02</span><strong>validacion backend</strong></div>
-                  <div class="flow-step"><span>03</span><strong>consulta SQL</strong></div>
-                  <div class="flow-step"><span>04</span><strong>PDF + notificacion</strong></div>
+                  <div class="flow-step"><span>01</span><strong data-i18n="mock.flow1">captura de datos</strong></div>
+                  <div class="flow-step"><span>02</span><strong data-i18n="mock.flow2">validacion backend</strong></div>
+                  <div class="flow-step"><span>03</span><strong data-i18n="mock.flow3">consulta SQL</strong></div>
+                  <div class="flow-step"><span>04</span><strong data-i18n="mock.flow4">PDF + notificacion</strong></div>
                 </div>
               </div>
 
               <div class="integration-map">
-                <h3>integraciones conectadas</h3>
+                <h3 data-i18n="mock.integrations">integraciones conectadas</h3>
                 <div class="node-grid">
                   <div class="tech-node"><span>input</span><strong>Excel / CSV</strong></div>
                   <div class="tech-node"><span>channel</span><strong>WhatsApp</strong></div>
                   <div class="tech-node"><span>service</span><strong>REST API</strong></div>
-                  <div class="tech-node"><span>output</span><strong>Reportes PDF</strong></div>
+                  <div class="tech-node"><span>output</span><strong data-i18n="mock.pdfReports">Reportes PDF</strong></div>
                 </div>
               </div>
             </div>
@@ -2108,8 +2152,8 @@
         </div>
 
         <div class="floating-note">
-          <strong>Ideal para negocios con procesos manuales</strong>
-          <span>Excel, WhatsApp, reportes repetitivos, inventario, reservas, órdenes o clientes.</span>
+          <strong data-i18n="floating.title">Ideal para negocios con procesos manuales</strong>
+          <span data-i18n="floating.text">Excel, WhatsApp, reportes repetitivos, inventario, reservas, órdenes o clientes.</span>
         </div>
       </div>
     </section>
@@ -2117,14 +2161,14 @@
     <section class="section alt" id="resolver">
       <div class="section-inner">
         <div class="section-head">
-          <h2>Qué puedo resolver</h2>
-          <p>Trabajo mejor cuando hay un proceso real del negocio que necesita orden, automatización o una herramienta interna más confiable.</p>
+          <h2 data-i18n="resolver.title">Qué puedo resolver</h2>
+          <p data-i18n="resolver.subtitle">Trabajo mejor cuando hay un proceso real del negocio que necesita orden, automatización o una herramienta interna más confiable.</p>
         </div>
 
         <div class="problem-layout">
           <div class="problem-statement">
             <p>
-              Si tu negocio depende demasiado de Excel, WhatsApp, reportes manuales o tareas repetitivas, puedo ayudarte a convertir ese flujo en una solución simple y mantenible.
+              <span data-i18n="resolver.statement">Si tu negocio depende demasiado de Excel, WhatsApp, reportes manuales o tareas repetitivas, puedo ayudarte a convertir ese flujo en una solución simple y mantenible.</span>
             </p>
           </div>
 
@@ -2132,29 +2176,29 @@
             <article class="problem-item">
               <span class="number">01</span>
               <div>
-                <h3>Procesos repetitivos</h3>
-                <p>Automatizo tareas que consumen tiempo: archivos, reportes, alertas, bots y validaciones.</p>
+                <h3 data-i18n="resolver.item1Title">Procesos repetitivos</h3>
+                <p data-i18n="resolver.item1Text">Automatizo tareas que consumen tiempo: archivos, reportes, alertas, bots y validaciones.</p>
               </div>
             </article>
             <article class="problem-item">
               <span class="number">02</span>
               <div>
-                <h3>Datos desordenados</h3>
-                <p>Diseño bases de datos y estructuras para que la información sea consultable y confiable.</p>
+                <h3 data-i18n="resolver.item2Title">Datos desordenados</h3>
+                <p data-i18n="resolver.item2Text">Diseño bases de datos y estructuras para que la información sea consultable y confiable.</p>
               </div>
             </article>
             <article class="problem-item">
               <span class="number">03</span>
               <div>
-                <h3>Herramientas desconectadas</h3>
-                <p>Conecto servicios mediante APIs, webhooks e integraciones para reducir pasos manuales.</p>
+                <h3 data-i18n="resolver.item3Title">Herramientas desconectadas</h3>
+                <p data-i18n="resolver.item3Text">Conecto servicios mediante APIs, webhooks e integraciones para reducir pasos manuales.</p>
               </div>
             </article>
             <article class="problem-item">
               <span class="number">04</span>
               <div>
-                <h3>Falta de control operativo</h3>
-                <p>Creo sistemas internos para clientes, inventario, órdenes, reservas, reportes y administración.</p>
+                <h3 data-i18n="resolver.item4Title">Falta de control operativo</h3>
+                <p data-i18n="resolver.item4Text">Creo sistemas internos para clientes, inventario, órdenes, reservas, reportes y administración.</p>
               </div>
             </article>
           </div>
@@ -2165,22 +2209,22 @@
     <section class="section" id="servicios">
       <div class="section-inner">
         <div class="section-head">
-          <h2>Servicios freelance</h2>
-          <p>Servicios pensados para pequeñas y medianas empresas que necesitan pasar de procesos manuales a herramientas digitales.</p>
+          <h2 data-i18n="services.title">Servicios freelance</h2>
+          <p data-i18n="services.subtitle">Servicios pensados para pequeñas y medianas empresas que necesitan pasar de procesos manuales a herramientas digitales.</p>
         </div>
 
         <div class="client-types" aria-label="Tipos de negocios con los que puedo trabajar">
-          <span>Tiendas y distribuidoras</span>
-          <span>Clínicas y consultorios</span>
-          <span>Gimnasios y centros</span>
-          <span>Negocios con preventa</span>
-          <span>Colegios y academias</span>
-          <span>Repuestos y almacenes</span>
+          <span data-i18n="clientTypes.retail">Tiendas y distribuidoras</span>
+          <span data-i18n="clientTypes.clinics">Clínicas y consultorios</span>
+          <span data-i18n="clientTypes.gyms">Gimnasios y centros</span>
+          <span data-i18n="clientTypes.presales">Negocios con preventa</span>
+          <span data-i18n="clientTypes.schools">Colegios y academias</span>
+          <span data-i18n="clientTypes.parts">Repuestos y almacenes</span>
         </div>
 
         <div class="service-grid">
           <article class="service-card">
-            <span class="badge-top">Más solicitado</span>
+            <span class="badge-top" data-i18n="services.badge">Más solicitado</span>
             <div class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 4v3"></path>
@@ -2195,8 +2239,8 @@
               </svg>
             </div>
             <span class="service-meta">scripts / cron / bots</span>
-            <h3>Automatización de procesos</h3>
-            <p>Scripts, bots, manejo de archivos, reportes automáticos, generación de PDF/CSV y reducción de tareas repetitivas.</p>
+            <h3 data-i18n="services.automationTitle">Automatización de procesos</h3>
+            <p data-i18n="services.automationText">Scripts, bots, manejo de archivos, reportes automáticos, generación de PDF/CSV y reducción de tareas repetitivas.</p>
           </article>
           <article class="service-card">
             <div class="service-icon" aria-hidden="true">
@@ -2206,8 +2250,8 @@
               </svg>
             </div>
             <span class="service-meta">REST / auth / webhooks</span>
-            <h3>APIs y backend</h3>
-            <p>APIs REST con FastAPI o Django, conexión a bases de datos, autenticación e integración con servicios externos.</p>
+            <h3 data-i18n="services.apiTitle">APIs y backend</h3>
+            <p data-i18n="services.apiText">APIs REST con FastAPI o Django, conexión a bases de datos, autenticación e integración con servicios externos.</p>
           </article>
           <article class="service-card">
             <div class="service-icon" aria-hidden="true">
@@ -2217,8 +2261,8 @@
               </svg>
             </div>
             <span class="service-meta">admin / login / CRUD</span>
-            <h3>Sistemas internos</h3>
-            <p>Herramientas con login, clientes, productos, inventario, órdenes, reservas, pagos y panel administrativo.</p>
+            <h3 data-i18n="services.systemsTitle">Sistemas internos</h3>
+            <p data-i18n="services.systemsText">Herramientas con login, clientes, productos, inventario, órdenes, reservas, pagos y panel administrativo.</p>
           </article>
           <article class="service-card">
             <div class="service-icon" aria-hidden="true">
@@ -2231,8 +2275,8 @@
               </svg>
             </div>
             <span class="service-meta">SQL / PDF / dashboards</span>
-            <h3>Datos y reportes</h3>
-            <p>Modelado de bases de datos, consultas SQL, dashboards básicos y reportes para ventas, inventario y operaciones.</p>
+            <h3 data-i18n="services.dataTitle">Datos y reportes</h3>
+            <p data-i18n="services.dataText">Modelado de bases de datos, consultas SQL, dashboards básicos y reportes para ventas, inventario y operaciones.</p>
           </article>
         </div>
       </div>
@@ -2241,19 +2285,19 @@
     <section class="section alt" id="proyectos">
       <div class="section-inner">
         <div class="section-head">
-          <h2>Proyectos destacados</h2>
-          <p>Cada proyecto está presentado desde el valor que puede entender un cliente: ordenar información, automatizar tareas y entregar sistemas útiles.</p>
+          <h2 data-i18n="projects.title">Proyectos destacados</h2>
+          <p data-i18n="projects.subtitle">Cada proyecto está presentado desde el valor que puede entender un cliente: ordenar información, automatizar tareas y entregar sistemas útiles.</p>
         </div>
 
         <div class="project-stack">
           <article class="project-card">
             <div class="project-copy">
               <h3>Willy Chic Dominicana S.R.L.</h3>
-              <p>Desarrollo backend y automatización para aplicaciones funcionales con lógica de negocio, bases de datos relacionales, APIs externas y chatbot con IA en Telegram.</p>
+              <p data-i18n="projects.willyText">Desarrollo backend y automatización para aplicaciones funcionales con lógica de negocio, bases de datos relacionales, APIs externas y chatbot con IA en Telegram.</p>
               <ul>
-                <li>Automatización de tareas repetitivas para reducir trabajo manual.</li>
-                <li>Diseño y estructuración de bases de datos adaptadas a procesos internos.</li>
-                <li>Integración de APIs, webhooks y chatbot para conectar servicios.</li>
+                <li data-i18n="projects.willyBullet1">Automatización de tareas repetitivas para reducir trabajo manual.</li>
+                <li data-i18n="projects.willyBullet2">Diseño y estructuración de bases de datos adaptadas a procesos internos.</li>
+                <li data-i18n="projects.willyBullet3">Integración de APIs, webhooks y chatbot para conectar servicios.</li>
               </ul>
               <div class="tag-row">
                 <span class="tag">Python</span>
@@ -2267,7 +2311,7 @@
                   <path d="M16 9h2a2 2 0 0 1 2 2v10"></path>
                   <path d="M8 8h4M8 12h4M8 16h4M3 21h18"></path>
                 </svg>
-                <p>Proyecto activo con empresa dominicana del sector retail.</p>
+                <p data-i18n="projects.willyNote">Proyecto activo con empresa dominicana del sector retail.</p>
               </div>
             </div>
 
@@ -2280,19 +2324,19 @@
                 <div class="project-flow">
                   <div class="project-node">
                     <div class="project-node-icon">BOT</div>
-                    <div><span>telegram webhook</span><strong>Captura mensajes y comandos operativos</strong></div>
+                    <div><span>telegram webhook</span><strong data-i18n="projects.nodeBot">Captura mensajes y comandos operativos</strong></div>
                   </div>
                   <div class="project-node">
                     <div class="project-node-icon">API</div>
-                    <div><span>backend service</span><strong>Valida reglas de negocio e integra servicios externos</strong></div>
+                    <div><span>backend service</span><strong data-i18n="projects.nodeApi">Valida reglas de negocio e integra servicios externos</strong></div>
                   </div>
                   <div class="project-node">
                     <div class="project-node-icon">SQL</div>
-                    <div><span>data layer</span><strong>Guarda datos estructurados para consultas y reportes</strong></div>
+                    <div><span>data layer</span><strong data-i18n="projects.nodeSql">Guarda datos estructurados para consultas y reportes</strong></div>
                   </div>
                   <div class="project-node">
                     <div class="project-node-icon">PDF</div>
-                    <div><span>output</span><strong>Entrega reportes y alertas listas para el negocio</strong></div>
+                    <div><span>output</span><strong data-i18n="projects.nodePdf">Entrega reportes y alertas listas para el negocio</strong></div>
                   </div>
                 </div>
               </div>
@@ -2302,11 +2346,11 @@
           <article class="project-card">
             <div class="project-copy">
               <h3>Rivas Budget Planning</h3>
-              <p>Aplicación multiplataforma de finanzas personales para Windows, Android y Web, desarrollada con Flutter/Dart, SQLite, arquitectura limpia, reportes PDF/CSV, licencias y respaldo de datos.</p>
+              <p data-i18n="projects.rbpText">Aplicación multiplataforma de finanzas personales para Windows, Android y Web, desarrollada con Flutter/Dart, SQLite, arquitectura limpia, reportes PDF/CSV, licencias y respaldo de datos.</p>
               <ul>
-                <li>Arquitectura limpia con separación de dominio, datos y presentación.</li>
-                <li>Base de datos SQLite con repositorios de acceso a datos.</li>
-                <li>Generación de reportes PDF/CSV y respaldo de información.</li>
+                <li data-i18n="projects.rbpBullet1">Arquitectura limpia con separación de dominio, datos y presentación.</li>
+                <li data-i18n="projects.rbpBullet2">Base de datos SQLite con repositorios de acceso a datos.</li>
+                <li data-i18n="projects.rbpBullet3">Generación de reportes PDF/CSV y respaldo de información.</li>
               </ul>
               <div class="tag-row">
                 <span class="tag">Flutter</span>
@@ -2324,9 +2368,9 @@
                 </div>
                 <video class="rbp-demo-video" controls preload="metadata" playsinline poster="assets/rbp-demo-poster.jpg">
                   <source src="assets/rbp-demo.mp4" type="video/mp4">
-                  Tu navegador no soporta video HTML5.
+                  <span data-i18n="projects.videoFallback">Tu navegador no soporta video HTML5.</span>
                 </video>
-                <p class="video-caption">Demo real de la app: flujo de presupuesto, reportes y datos locales.</p>
+                <p class="video-caption" data-i18n="projects.videoCaption">Demo real de la app: flujo de presupuesto, reportes y datos locales.</p>
               </div>
             </div>
           </article>
@@ -2338,30 +2382,30 @@
     <section class="section" id="proceso">
       <div class="section-inner">
         <div class="section-head">
-          <h2>Forma de trabajo</h2>
-          <p>Un proceso simple para entender el problema, construir por etapas y dejar una solución que el negocio pueda usar sin complicaciones.</p>
+          <h2 data-i18n="process.title">Forma de trabajo</h2>
+          <p data-i18n="process.subtitle">Un proceso simple para entender el problema, construir por etapas y dejar una solución que el negocio pueda usar sin complicaciones.</p>
         </div>
 
         <div class="process-grid">
           <article class="process-step">
             <span>01</span>
-            <h3>Llamada de diagnóstico</h3>
-            <p>30 minutos para entender el flujo actual, lo que falla y el resultado esperado. Sin compromiso.</p>
+            <h3 data-i18n="process.step1Title">Llamada de diagnóstico</h3>
+            <p data-i18n="process.step1Text">30 minutos para entender el flujo actual, lo que falla y el resultado esperado. Sin compromiso.</p>
           </article>
           <article class="process-step">
             <span>02</span>
-            <h3>Propuesta con alcance claro</h3>
-            <p>Entregables concretos, qué datos necesito, cuánto tiempo toma y cómo se divide el trabajo.</p>
+            <h3 data-i18n="process.step2Title">Propuesta con alcance claro</h3>
+            <p data-i18n="process.step2Text">Entregables concretos, qué datos necesito, cuánto tiempo toma y cómo se divide el trabajo.</p>
           </article>
           <article class="process-step">
             <span>03</span>
-            <h3>Desarrollo con avances</h3>
-            <p>Construyo por etapas y te muestro avances reales para que puedas revisar y corregir sobre la marcha.</p>
+            <h3 data-i18n="process.step3Title">Desarrollo con avances</h3>
+            <p data-i18n="process.step3Text">Construyo por etapas y te muestro avances reales para que puedas revisar y corregir sobre la marcha.</p>
           </article>
           <article class="process-step">
             <span>04</span>
-            <h3>Entrega funcional</h3>
-            <p>El sistema, API o automatización lista para usarse, con explicación de cómo funciona y cómo mantenerlo.</p>
+            <h3 data-i18n="process.step4Title">Entrega funcional</h3>
+            <p data-i18n="process.step4Text">El sistema, API o automatización lista para usarse, con explicación de cómo funciona y cómo mantenerlo.</p>
           </article>
         </div>
       </div>
@@ -2370,8 +2414,8 @@
     <section class="section" id="stack">
       <div class="section-inner">
         <div class="section-head">
-          <h2>Tecnologías</h2>
-          <p>Uso herramientas prácticas para construir backend, bases de datos, automatizaciones y productos internos mantenibles.</p>
+          <h2 data-i18n="stack.title">Tecnologías</h2>
+          <p data-i18n="stack.subtitle">Uso herramientas prácticas para construir backend, bases de datos, automatizaciones y productos internos mantenibles.</p>
         </div>
 
         <div class="tools-layout">
@@ -2387,7 +2431,7 @@
               </div>
             </article>
             <article class="tool-group">
-              <h3>Bases de datos</h3>
+              <h3 data-i18n="stack.databases">Bases de datos</h3>
               <div class="chip-list">
                 <span class="chip">SQL Server</span>
                 <span class="chip">MySQL</span>
@@ -2396,7 +2440,7 @@
               </div>
             </article>
             <article class="tool-group">
-              <h3>Automatización</h3>
+              <h3 data-i18n="stack.automation">Automatización</h3>
               <div class="chip-list">
                 <span class="chip">Webhooks</span>
                 <span class="chip">Telegram Bot API</span>
@@ -2405,7 +2449,7 @@
               </div>
             </article>
             <article class="tool-group">
-              <h3>Herramientas</h3>
+              <h3 data-i18n="stack.tools">Herramientas</h3>
               <div class="chip-list">
                 <span class="chip">Git</span>
                 <span class="chip">GitHub</span>
@@ -2417,13 +2461,13 @@
           </div>
 
           <aside class="work-card">
-            <h3>También puedo apoyar con</h3>
-            <p>Documentación básica, despliegues simples, organización del proyecto y mejoras incrementales después de la primera entrega.</p>
+            <h3 data-i18n="stack.supportTitle">También puedo apoyar con</h3>
+            <p data-i18n="stack.supportText">Documentación básica, despliegues simples, organización del proyecto y mejoras incrementales después de la primera entrega.</p>
             <ul>
-              <li>Entregables claros por etapas.</li>
-              <li>Código limpio y mantenible.</li>
-              <li>Comunicación directa y seguimiento del avance.</li>
-              <li>Enfoque en resolver problemas reales del negocio.</li>
+              <li data-i18n="stack.support1">Entregables claros por etapas.</li>
+              <li data-i18n="stack.support2">Código limpio y mantenible.</li>
+              <li data-i18n="stack.support3">Comunicación directa y seguimiento del avance.</li>
+              <li data-i18n="stack.support4">Enfoque en resolver problemas reales del negocio.</li>
             </ul>
           </aside>
         </div>
@@ -2434,14 +2478,14 @@
       <div class="section-inner">
         <div class="about-layout">
           <div class="about-copy">
-            <h2>Quién está detrás del código</h2>
-            <p>Soy José Manuel, desarrollador backend de Santo Domingo. Me especialicé en automatización y sistemas internos porque muchos negocios dominicanos siguen resolviendo operaciones con Excel y WhatsApp, y eso tiene solución.</p>
-            <p>No me interesa construir cosas complicadas. Me interesa construir cosas que el negocio realmente use.</p>
+            <h2 data-i18n="about.title">Quién está detrás del código</h2>
+            <p data-i18n="about.p1">Soy José Manuel, desarrollador backend de Santo Domingo. Me especialicé en automatización y sistemas internos porque muchos negocios dominicanos siguen resolviendo operaciones con Excel y WhatsApp, y eso tiene solución.</p>
+            <p data-i18n="about.p2">No me interesa construir cosas complicadas. Me interesa construir cosas que el negocio realmente use.</p>
           </div>
           <div class="about-stats" aria-label="Datos rápidos sobre José">
-            <div class="stat-item"><strong>2+</strong><span>años construyendo backend y automatizaciones</span></div>
-            <div class="stat-item"><strong>Python</strong><span>lenguaje principal para APIs, bots y reportes</span></div>
-            <div class="stat-item"><strong>Negocios</strong><span>experiencia con operaciones reales en República Dominicana</span></div>
+            <div class="stat-item"><strong>2+</strong><span data-i18n="about.stat1">años construyendo backend y automatizaciones</span></div>
+            <div class="stat-item"><strong>Python</strong><span data-i18n="about.stat2">lenguaje principal para APIs, bots y reportes</span></div>
+            <div class="stat-item"><strong data-i18n="about.stat3Label">Negocios</strong><span data-i18n="about.stat3">experiencia con operaciones reales en República Dominicana</span></div>
           </div>
         </div>
       </div>
@@ -2450,14 +2494,14 @@
     <section class="contact-section" id="contacto">
       <div class="contact-layout">
         <div class="contact-copy">
-          <h2>Cuéntame qué proceso quieres mejorar</h2>
+          <h2 data-i18n="contact.title">Cuéntame qué proceso quieres mejorar</h2>
           <p>
-            Si tienes un negocio con tareas repetitivas, datos desordenados o una idea de sistema interno, puedo ayudarte a aterrizar el alcance y construir una primera versión útil.
+            <span data-i18n="contact.subtitle">Si tienes un negocio con tareas repetitivas, datos desordenados o una idea de sistema interno, puedo ayudarte a aterrizar el alcance y construir una primera versión útil.</span>
           </p>
 
           <div class="contact-list">
             <a class="contact-link" href="tel:+18292222172">
-              <span>Teléfono</span>
+              <span data-i18n="contact.phone">Teléfono</span>
               <strong>829-222-2172</strong>
             </a>
             <a class="contact-link" href="mailto:jmrivast0110@gmail.com">
@@ -2469,36 +2513,36 @@
               <strong>linkedin.com/in/jmrivast0110</strong>
             </a>
             <a class="contact-link" href="https://github.com/jmrivast" target="_blank" rel="noopener noreferrer">
-              <span>GitHub / Portafolio</span>
+              <span data-i18n="contact.github">GitHub / Portafolio</span>
               <strong>github.com/jmrivast</strong>
             </a>
           </div>
         </div>
 
         <form class="message-card" id="contactForm">
-          <h3>Arma un mensaje rápido</h3>
-          <p>Elige el tipo de proyecto y ajusta el texto. El botón abrirá WhatsApp con el mensaje listo.</p>
+          <h3 data-i18n="form.title">Arma un mensaje rápido</h3>
+          <p data-i18n="form.subtitle">Elige el tipo de proyecto y ajusta el texto. El botón abrirá WhatsApp con el mensaje listo.</p>
 
           <div class="form-grid">
             <label for="projectType">
-              Tipo de proyecto
+              <span data-i18n="form.typeLabel">Tipo de proyecto</span>
               <select id="projectType" name="projectType">
-                <option value="automatizar un proceso repetitivo">Automatización de procesos</option>
-                <option value="crear una API o integración">API o integración</option>
-                <option value="crear un sistema interno para mi negocio">Sistema interno</option>
-                <option value="organizar datos y generar reportes">Datos y reportes</option>
+                <option value="automatizar un proceso repetitivo" data-i18n="form.optionAutomation" data-i18n-value="form.optionAutomationValue">Automatización de procesos</option>
+                <option value="crear una API o integración" data-i18n="form.optionApi" data-i18n-value="form.optionApiValue">API o integración</option>
+                <option value="crear un sistema interno para mi negocio" data-i18n="form.optionSystem" data-i18n-value="form.optionSystemValue">Sistema interno</option>
+                <option value="organizar datos y generar reportes" data-i18n="form.optionData" data-i18n-value="form.optionDataValue">Datos y reportes</option>
               </select>
             </label>
 
             <label for="messageText">
-              Mensaje
+              <span data-i18n="form.messageLabel">Mensaje</span>
               <textarea id="messageText" name="messageText">Hola José, vi tu portfolio y tengo un negocio con [describe el proceso]. Me gustaría hablar contigo para ver si puedes ayudarme.</textarea>
             </label>
           </div>
 
           <div class="message-actions">
-            <a class="button button-primary" id="whatsappLink" href="https://wa.me/18292222172" target="_blank" rel="noopener noreferrer">Enviar por WhatsApp</a>
-            <a class="button button-secondary" id="emailLink" href="mailto:jmrivast0110@gmail.com">Enviar por email</a>
+            <a class="button button-primary" id="whatsappLink" href="https://wa.me/18292222172" target="_blank" rel="noopener noreferrer" data-i18n="form.whatsapp">Enviar por WhatsApp</a>
+            <a class="button button-secondary" id="emailLink" href="mailto:jmrivast0110@gmail.com" data-i18n="form.email">Enviar por email</a>
           </div>
         </form>
       </div>
@@ -2507,12 +2551,12 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <span><strong>José Manuel Rivas Tineo</strong> - Santo Domingo, República Dominicana &nbsp;·&nbsp; <span id="footer-year"></span></span>
-      <span>Backend, APIs, automatización y sistemas internos.</span>
+      <span><strong>José Manuel Rivas Tineo</strong> - <span data-i18n="footer.location">Santo Domingo, República Dominicana</span> &nbsp;·&nbsp; <span id="footer-year"></span></span>
+      <span data-i18n="footer.text">Backend, APIs, automatización y sistemas internos.</span>
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/18292222172?text=Hola%20Jos%C3%A9%2C%20vi%20tu%20portfolio%20y%20quiero%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+  <a class="whatsapp-float" id="floatingWhatsappLink" href="https://wa.me/18292222172?text=Hola%20Jos%C3%A9%2C%20vi%20tu%20portfolio%20y%20quiero%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24" width="27" height="27" fill="white" aria-hidden="true">
       <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"></path>
       <path d="M12.03 2a9.94 9.94 0 0 0-8.5 15.1L2.33 22l5.02-1.17A9.96 9.96 0 1 0 12.03 2Zm0 18.16a8.19 8.19 0 0 1-4.18-1.14l-.3-.18-2.98.7.72-2.9-.2-.31a8.22 8.22 0 1 1 6.94 3.83Z"></path>
@@ -2527,22 +2571,273 @@
     const messageText = document.querySelector("#messageText");
     const whatsappLink = document.querySelector("#whatsappLink");
     const emailLink = document.querySelector("#emailLink");
+    const languageSelect = document.querySelector("#languageSelect");
+    const navWhatsappLink = document.querySelector("#navWhatsappLink");
+    const floatingWhatsappLink = document.querySelector("#floatingWhatsappLink");
     const phoneNumber = "18292222172";
     const email = "jmrivast0110@gmail.com";
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-
+    const footerYear = document.querySelector("#footer-year");
     const availabilityDate = document.querySelector("#availability-date");
-    if (availabilityDate) {
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const originalText = {};
+    const originalValues = {};
+    const originalAttrs = {};
+    const monthsByLanguage = {
+      es: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+      en: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    };
+    const translations = {
+      en: {
+        "brand.subtitle": "Backend and automation",
+        "nav.menu": "Open menu",
+        "nav.services": "Services",
+        "nav.projects": "Projects",
+        "nav.process": "Process",
+        "nav.about": "About",
+        "nav.contact": "Contact",
+        "nav.whatsapp": "WhatsApp",
+        "language.label": "Language",
+        "availability.prefix": "Available for new projects",
+        "hero.title": "Backend Developer and Business Automation",
+        "hero.location": "📍 Santo Domingo, DR",
+        "hero.summary": "I connect Excel, WhatsApp, APIs, and databases to turn manual processes into internal systems and practical reports.",
+        "hero.ctaPrimary": "Let's talk about your project",
+        "hero.ctaSecondary": "View projects",
+        "hero.signalApis": "FastAPI, Django, REST, and external integrations.",
+        "hero.signalDataTitle": "Data",
+        "hero.signalData": "SQL Server, MySQL, SQLite, data modeling, and reports.",
+        "hero.signalFlowsTitle": "Flows",
+        "hero.signalFlows": "Automation, bots, PDF/CSV, and internal systems.",
+        "mock.status": "Status",
+        "mock.output": "Output",
+        "mock.pipelineTitle": "request - validate - database - report",
+        "mock.flow1": "data capture",
+        "mock.flow2": "backend validation",
+        "mock.flow3": "SQL query",
+        "mock.flow4": "PDF + notification",
+        "mock.integrations": "connected integrations",
+        "mock.pdfReports": "PDF reports",
+        "floating.title": "Ideal for businesses with manual processes",
+        "floating.text": "Excel, WhatsApp, repetitive reports, inventory, reservations, orders, or clients.",
+        "resolver.title": "What I Can Solve",
+        "resolver.subtitle": "I work best when there is a real business process that needs order, automation, or a more reliable internal tool.",
+        "resolver.statement": "If your business depends too much on Excel, WhatsApp, manual reports, or repetitive tasks, I can help turn that workflow into a simple and maintainable solution.",
+        "resolver.item1Title": "Repetitive processes",
+        "resolver.item1Text": "I automate time-consuming tasks: files, reports, alerts, bots, and validations.",
+        "resolver.item2Title": "Messy data",
+        "resolver.item2Text": "I design databases and structures so information becomes searchable and reliable.",
+        "resolver.item3Title": "Disconnected tools",
+        "resolver.item3Text": "I connect services through APIs, webhooks, and integrations to reduce manual steps.",
+        "resolver.item4Title": "Lack of operational control",
+        "resolver.item4Text": "I build internal systems for clients, inventory, orders, reservations, reports, and administration.",
+        "services.title": "Freelance Services",
+        "services.subtitle": "Services for small and medium businesses that need to move from manual processes to digital tools.",
+        "clientTypes.retail": "Stores and distributors",
+        "clientTypes.clinics": "Clinics and practices",
+        "clientTypes.gyms": "Gyms and centers",
+        "clientTypes.presales": "Pre-sale businesses",
+        "clientTypes.schools": "Schools and academies",
+        "clientTypes.parts": "Parts shops and warehouses",
+        "services.badge": "Most requested",
+        "services.automationTitle": "Process automation",
+        "services.automationText": "Scripts, bots, file handling, automatic reports, PDF/CSV generation, and reduction of repetitive tasks.",
+        "services.apiTitle": "APIs and backend",
+        "services.apiText": "REST APIs with FastAPI or Django, database connections, authentication, and integration with external services.",
+        "services.systemsTitle": "Internal systems",
+        "services.systemsText": "Tools with login, clients, products, inventory, orders, reservations, payments, and admin panels.",
+        "services.dataTitle": "Data and reports",
+        "services.dataText": "Database modeling, SQL queries, basic dashboards, and reports for sales, inventory, and operations.",
+        "projects.title": "Featured Projects",
+        "projects.subtitle": "Each project is presented from the value a client can understand: organizing information, automating tasks, and delivering useful systems.",
+        "projects.willyText": "Backend development and automation for functional applications with business logic, relational databases, external APIs, and an AI chatbot on Telegram.",
+        "projects.willyBullet1": "Automation of repetitive tasks to reduce manual work.",
+        "projects.willyBullet2": "Database design and structuring adapted to internal processes.",
+        "projects.willyBullet3": "API, webhook, and chatbot integration to connect services.",
+        "projects.willyNote": "Active project with a Dominican retail company.",
+        "projects.nodeBot": "Captures messages and operational commands",
+        "projects.nodeApi": "Validates business rules and integrates external services",
+        "projects.nodeSql": "Stores structured data for queries and reports",
+        "projects.nodePdf": "Delivers reports and alerts ready for the business",
+        "projects.rbpText": "Cross-platform personal finance app for Windows, Android, and Web, built with Flutter/Dart, SQLite, clean architecture, PDF/CSV reports, licenses, and data backup.",
+        "projects.rbpBullet1": "Clean architecture with separation of domain, data, and presentation.",
+        "projects.rbpBullet2": "SQLite database with data access repositories.",
+        "projects.rbpBullet3": "PDF/CSV report generation and information backup.",
+        "projects.videoFallback": "Your browser does not support HTML5 video.",
+        "projects.videoCaption": "Real app demo: budgeting flow, reports, and local data.",
+        "process.title": "How I Work",
+        "process.subtitle": "A simple process to understand the problem, build in stages, and leave a solution the business can use without complications.",
+        "process.step1Title": "Diagnostic call",
+        "process.step1Text": "30 minutes to understand the current workflow, what is failing, and the expected result. No commitment.",
+        "process.step2Title": "Clear-scope proposal",
+        "process.step2Text": "Concrete deliverables, what data I need, how long it takes, and how the work is divided.",
+        "process.step3Title": "Development with progress updates",
+        "process.step3Text": "I build in stages and show real progress so you can review and correct along the way.",
+        "process.step4Title": "Functional delivery",
+        "process.step4Text": "The system, API, or automation ready to use, with an explanation of how it works and how to maintain it.",
+        "stack.title": "Technologies",
+        "stack.subtitle": "I use practical tools to build backend, databases, automations, and maintainable internal products.",
+        "stack.databases": "Databases",
+        "stack.automation": "Automation",
+        "stack.tools": "Tools",
+        "stack.supportTitle": "I can also support with",
+        "stack.supportText": "Basic documentation, simple deployments, project organization, and incremental improvements after the first delivery.",
+        "stack.support1": "Clear deliverables by stage.",
+        "stack.support2": "Clean and maintainable code.",
+        "stack.support3": "Direct communication and progress tracking.",
+        "stack.support4": "Focus on solving real business problems.",
+        "about.title": "Who Is Behind the Code",
+        "about.p1": "I am José Manuel, a backend developer from Santo Domingo. I specialized in automation and internal systems because many Dominican businesses still run operations with Excel and WhatsApp, and that can be solved.",
+        "about.p2": "I am not interested in building complicated things. I am interested in building things the business will actually use.",
+        "about.stat1": "years building backend and automations",
+        "about.stat2": "main language for APIs, bots, and reports",
+        "about.stat3Label": "Businesses",
+        "about.stat3": "experience with real operations in the Dominican Republic",
+        "contact.title": "Tell me what process you want to improve",
+        "contact.subtitle": "If you have a business with repetitive tasks, messy data, or an internal system idea, I can help you define the scope and build a useful first version.",
+        "contact.phone": "Phone",
+        "contact.github": "GitHub / Portfolio",
+        "form.title": "Build a quick message",
+        "form.subtitle": "Choose the project type and adjust the text. The button will open WhatsApp with the message ready.",
+        "form.typeLabel": "Project type",
+        "form.optionAutomation": "Process automation",
+        "form.optionAutomationValue": "automating a repetitive process",
+        "form.optionApi": "API or integration",
+        "form.optionApiValue": "creating an API or integration",
+        "form.optionSystem": "Internal system",
+        "form.optionSystemValue": "creating an internal system for my business",
+        "form.optionData": "Data and reports",
+        "form.optionDataValue": "organizing data and generating reports",
+        "form.messageLabel": "Message",
+        "form.whatsapp": "Send via WhatsApp",
+        "form.email": "Send by email",
+        "footer.location": "Santo Domingo, Dominican Republic",
+        "footer.text": "Backend, APIs, automation, and internal systems."
+      }
+    };
+    const pageMeta = {
+      es: {
+        title: "José Manuel Rivas Tineo | Backend y Automatización para Negocios",
+        description: "Portfolio freelance de José Manuel Rivas Tineo, desarrollador backend especializado en APIs, automatización, bases de datos y sistemas internos para negocios.",
+        ogDescription: "Conecto Excel, WhatsApp, APIs y bases de datos para convertir procesos manuales en sistemas internos y reportes prácticos."
+      },
+      en: {
+        title: "José Manuel Rivas Tineo | Backend and Business Automation",
+        description: "Freelance portfolio of José Manuel Rivas Tineo, backend developer specialized in APIs, automation, databases, and internal systems for businesses.",
+        ogDescription: "I connect Excel, WhatsApp, APIs, and databases to turn manual processes into internal systems and practical reports."
+      }
+    };
+    const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+    let currentLanguage = ["es", "en"].includes(requestedLanguage) ? requestedLanguage : localStorage.getItem("portfolio-language") || "es";
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      originalText[element.dataset.i18n] = element.textContent;
+    });
+
+    document.querySelectorAll("[data-i18n-value]").forEach((element) => {
+      originalValues[element.dataset.i18nValue] = element.value;
+    });
+
+    document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+      element.dataset.i18nAttr.split(",").forEach((pair) => {
+        const [attr, key] = pair.split(":").map((item) => item.trim());
+        originalAttrs[key] = element.getAttribute(attr);
+      });
+    });
+
+    if (footerYear) {
+      footerYear.textContent = new Date().getFullYear();
+    }
+
+    function updateAvailabilityDate() {
+      if (!availabilityDate) return;
       const now = new Date();
-      const months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-      availabilityDate.textContent = `en ${months[now.getMonth()]} ${now.getFullYear()}`;
+      const months = monthsByLanguage[currentLanguage] || monthsByLanguage.es;
+      const prefix = currentLanguage === "en" ? "in" : "en";
+      availabilityDate.textContent = `${prefix} ${months[now.getMonth()]} ${now.getFullYear()}`;
+    }
+
+    function translateStaticContent(language) {
+      document.documentElement.lang = language;
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        element.textContent = language === "en" ? translations.en[key] || originalText[key] : originalText[key];
+      });
+
+      document.querySelectorAll("[data-i18n-value]").forEach((element) => {
+        const key = element.dataset.i18nValue;
+        element.value = language === "en" ? translations.en[key] || originalValues[key] : originalValues[key];
+      });
+
+      document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+        element.dataset.i18nAttr.split(",").forEach((pair) => {
+          const [attr, key] = pair.split(":").map((item) => item.trim());
+          const value = language === "en" ? translations.en[key] || originalAttrs[key] : originalAttrs[key];
+          element.setAttribute(attr, value);
+        });
+      });
+
+      const meta = pageMeta[language] || pageMeta.es;
+      document.title = meta.title;
+      if (metaDescription) metaDescription.setAttribute("content", meta.description);
+      if (ogDescription) ogDescription.setAttribute("content", meta.ogDescription);
+      if (ogTitle) ogTitle.setAttribute("content", meta.title);
+      updateAvailabilityDate();
+    }
+
+    function defaultMessage(language) {
+      if (language === "en") {
+        return "Hi José, I saw your portfolio and I have a business with [describe the process]. I would like to talk with you to see if you can help me.";
+      }
+
+      return "Hola José, vi tu portfolio y tengo un negocio con [describe el proceso]. Me gustaría hablar contigo para ver si puedes ayudarme.";
+    }
+
+    function projectMessage(language) {
+      if (language === "en") {
+        return `Hi José, I saw your portfolio and I want to talk about ${projectType.value} in my business. Can we schedule a short call?`;
+      }
+
+      return `Hola José, vi tu portfolio y quiero hablar sobre ${projectType.value} en mi negocio. ¿Podemos agendar una llamada corta?`;
+    }
+
+    function staticWhatsappMessage(language) {
+      if (language === "en") {
+        return "Hi José, I saw your portfolio and I want to talk about a project.";
+      }
+
+      return "Hola José, vi tu portfolio y quiero hablar sobre un proyecto.";
+    }
+
+    function applyLanguage(language, resetMessage = true) {
+      currentLanguage = language;
+      localStorage.setItem("portfolio-language", language);
+      if (languageSelect) {
+        languageSelect.value = language;
+      }
+
+      translateStaticContent(language);
+      if (resetMessage) {
+        messageText.value = defaultMessage(language);
+      }
+
+      const encodedStaticMessage = encodeURIComponent(staticWhatsappMessage(language));
+      if (navWhatsappLink) {
+        navWhatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodedStaticMessage}`;
+      }
+      if (floatingWhatsappLink) {
+        floatingWhatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodedStaticMessage}`;
+      }
+      updateContactLinks();
     }
 
     function updateContactLinks() {
       const message = messageText.value.trim();
       const encodedMessage = encodeURIComponent(message);
       whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-      emailLink.href = `mailto:${email}?subject=${encodeURIComponent("Proyecto freelance")}&body=${encodedMessage}`;
+      const subject = currentLanguage === "en" ? "Freelance project" : "Proyecto freelance";
+      emailLink.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodedMessage}`;
     }
 
     menuToggle.addEventListener("click", () => {
@@ -2558,12 +2853,16 @@
     });
 
     projectType.addEventListener("change", () => {
-      messageText.value = `Hola José, vi tu portfolio y quiero hablar sobre ${projectType.value} en mi negocio. ¿Podemos agendar una llamada corta?`;
+      messageText.value = projectMessage(currentLanguage);
       updateContactLinks();
     });
 
+    languageSelect.addEventListener("change", () => {
+      applyLanguage(languageSelect.value);
+    });
+
     messageText.addEventListener("input", updateContactLinks);
-    updateContactLinks();
+    applyLanguage(currentLanguage);
   </script>
 </body>
 </html>
