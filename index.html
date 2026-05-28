@@ -79,6 +79,7 @@
     }
 
     .nav {
+      position: relative;
       width: min(var(--max), calc(100% - 40px));
       min-height: 72px;
       margin: 0 auto;
@@ -135,6 +136,13 @@
       gap: 6px;
     }
 
+    .nav-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
+    }
+
     .nav-links a {
       border-radius: 999px;
       color: #344054;
@@ -169,6 +177,7 @@
       padding: 0 12px;
       cursor: pointer;
       outline: none;
+      box-shadow: 0 12px 26px rgba(15, 35, 79, 0.06);
     }
 
     .language-switch select:focus-visible {
@@ -1338,6 +1347,58 @@
       line-height: 1.45;
     }
 
+    .website-preview {
+      width: min(460px, 94%);
+      border: 1px solid rgba(95, 215, 255, 0.24);
+      border-radius: var(--radius);
+      background: rgba(6, 17, 38, 0.96);
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .website-preview-top {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid rgba(95, 215, 255, 0.16);
+      padding: 0 14px;
+      color: #d8f8ff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .website-preview-top span:last-child {
+      color: #79f2c0;
+    }
+
+    .website-preview img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 11;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .website-preview-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid rgba(95, 215, 255, 0.16);
+      padding: 11px 14px;
+      color: #90adbd;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .website-preview-link strong {
+      color: #d8f8ff;
+    }
+
     .budget-row {
       display: flex;
       align-items: center;
@@ -1768,13 +1829,15 @@
 
       .menu-toggle {
         display: inline-block;
+        order: 3;
       }
 
       .nav-links {
         position: absolute;
-        left: 14px;
-        right: 14px;
-        top: 70px;
+        left: 0;
+        right: auto;
+        top: calc(100% + 8px);
+        width: min(280px, calc(100vw - 28px));
         display: none;
         flex-direction: column;
         align-items: stretch;
@@ -1792,10 +1855,21 @@
 
       .nav-links a {
         border-radius: var(--radius);
+        text-align: left;
       }
 
       .nav .button {
         display: none;
+      }
+
+      .nav-actions {
+        order: 2;
+        margin-left: auto;
+      }
+
+      .language-switch select {
+        min-height: 40px;
+        padding: 0 10px;
       }
 
       .hero,
@@ -2042,15 +2116,17 @@
         <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </div>
 
-      <div class="language-switch">
-        <label class="sr-only" for="languageSelect" data-i18n="language.label">Idioma</label>
-        <select id="languageSelect" aria-label="Idioma">
-          <option value="es">ES</option>
-          <option value="en">EN</option>
-        </select>
-      </div>
+      <div class="nav-actions">
+        <div class="language-switch">
+          <label class="sr-only" for="languageSelect" data-i18n="language.label">Idioma</label>
+          <select id="languageSelect" aria-label="Idioma">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+          </select>
+        </div>
 
-      <a class="button button-primary" id="navWhatsappLink" data-i18n="nav.whatsapp" href="https://wa.me/18292222172?text=Hola%20Jos%C3%A9%2C%20quiero%20hablar%20sobre%20un%20proyecto%20freelance." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a class="button button-primary" id="navWhatsappLink" data-i18n="nav.whatsapp" href="https://wa.me/18292222172?text=Hola%20Jos%C3%A9%2C%20quiero%20hablar%20sobre%20un%20proyecto%20freelance." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
     </nav>
   </header>
 
@@ -2375,6 +2451,38 @@
             </div>
           </article>
 
+          <article class="project-card">
+            <div class="project-copy">
+              <h3>Lucas Landscaping</h3>
+              <p data-i18n="projects.lucasText">Sitio web comercial para una empresa de landscaping en New York, diseñado para presentar servicios, zonas de trabajo, proyectos visuales y llamadas directas desde el primer viewport.</p>
+              <ul>
+                <li data-i18n="projects.lucasBullet1">Hero visual con propuesta clara, datos de contacto y llamadas a la acción.</li>
+                <li data-i18n="projects.lucasBullet2">Estructura bilingüe para clientes en inglés y español.</li>
+                <li data-i18n="projects.lucasBullet3">Secciones para servicios, trabajos realizados, área de servicio y contacto.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Bilingual</span>
+              </div>
+            </div>
+
+            <div class="project-visual phone-visual" aria-label="Screenshot del sitio web Lucas Landscaping">
+              <div class="website-preview">
+                <div class="website-preview-top">
+                  <span>lucaslandscaping.work</span>
+                  <span>Live website</span>
+                </div>
+                <img src="assets/lucas-landscaping-screenshot.jpg" alt="Captura del sitio web Lucas Landscaping">
+                <a class="website-preview-link" href="https://www.lucaslandscaping.work" target="_blank" rel="noopener noreferrer">
+                  <span data-i18n="projects.lucasVisit">Visitar sitio</span>
+                  <strong>↗</strong>
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -2666,6 +2774,11 @@
         "projects.rbpBullet3": "PDF/CSV report generation and information backup.",
         "projects.videoFallback": "Your browser does not support HTML5 video.",
         "projects.videoCaption": "Real app demo: budgeting flow, reports, and local data.",
+        "projects.lucasText": "Commercial website for a landscaping company in New York, designed to present services, work areas, visual projects, and direct calls to action from the first viewport.",
+        "projects.lucasBullet1": "Visual hero with a clear offer, contact details, and calls to action.",
+        "projects.lucasBullet2": "Bilingual structure for clients in English and Spanish.",
+        "projects.lucasBullet3": "Sections for services, completed work, service area, and contact.",
+        "projects.lucasVisit": "Visit site",
         "process.title": "How I Work",
         "process.subtitle": "A simple process to understand the problem, build in stages, and leave a solution the business can use without complications.",
         "process.step1Title": "Diagnostic call",
