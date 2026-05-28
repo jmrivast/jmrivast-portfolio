@@ -1386,15 +1386,6 @@
       object-position: top center;
     }
 
-    .website-preview img.mobile-screenshot {
-      width: min(270px, 82%);
-      margin: 18px auto;
-      aspect-ratio: auto;
-      border: 1px solid rgba(95, 215, 255, 0.16);
-      border-radius: 22px;
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
-    }
-
     .website-preview-link {
       display: flex;
       align-items: center;
@@ -2513,7 +2504,7 @@
           <article class="project-card">
             <div class="project-copy">
               <h3>Sebelén Torneos</h3>
-              <p data-i18n="projects.sebelenText">Aplicación Django para reservas y pagos de torneos de boliche, con cupos reales por tanda, reservas temporales, Cardnet QA, reCAPTCHA, rate limiting y administración operativa.</p>
+              <p data-i18n="projects.sebelenText">Aplicación Django para reservas y pagos de torneos de boliche, con cupos reales por tanda, reservas temporales,Pago Cardnet 3DS, reCAPTCHA, rate limiting y administración operativa.</p>
               <ul>
                 <li data-i18n="projects.sebelenBullet1">Reservas temporales con countdown, cancelación privada y expiración automática para liberar cupos.</li>
                 <li data-i18n="projects.sebelenBullet2">Integración Cardnet desde backend con confirmación server-to-server antes de marcar pagos como aprobados.</li>
@@ -2533,11 +2524,11 @@
                   <span>sebelentorneos</span>
                   <span>Django + Cardnet</span>
                 </div>
-                <img class="mobile-screenshot" src="assets/sebelen-torneos-screenshot.png" alt="Captura móvil de Sebelén Torneos">
-                <div class="website-preview-link">
-                  <span data-i18n="projects.sebelenPreview">Reserva, tanda y pago seguro</span>
-                  <strong>QA</strong>
-                </div>
+                <img src="assets/sebelen-torneos-screenshot.png" alt="Captura desktop de Sebelén Torneos">
+                <a class="website-preview-link" href="https://www.sebelentorneos.com" target="_blank" rel="noopener noreferrer">
+                  <span data-i18n="projects.sebelenVisit">Visitar sitio</span>
+                  <strong>↗</strong>
+                </a>
               </div>
             </div>
           </article>
@@ -2844,7 +2835,7 @@
         "projects.sebelenBullet1": "Temporary reservations with countdown, private cancellation, and automatic expiration to release spots.",
         "projects.sebelenBullet2": "Backend Cardnet integration with server-to-server confirmation before marking payments as approved.",
         "projects.sebelenBullet3": "Applied security: reCAPTCHA v3, rate limits, CSRF, encrypted phones/tokens, and request_id logs.",
-        "projects.sebelenPreview": "Reservation, session, and secure payment",
+        "projects.sebelenVisit": "Visit site",
         "process.title": "How I Work",
         "process.subtitle": "A simple process to understand the problem, build in stages, and leave a solution the business can use without complications.",
         "process.step1Title": "Diagnostic call",
