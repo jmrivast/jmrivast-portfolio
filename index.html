@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio freelance de José Manuel Rivas Tineo, desarrollador backend especializado en APIs, automatización, bases de datos y sistemas internos para negocios." />
-  <meta property="og:title" content="José Manuel Rivas Tineo | Backend y Automatización para Negocios" />
+  <meta name="description" content="Portfolio freelance de José Manuel Rivas Tineo, desarrollador full stack especializado en apps web, APIs, automatización, bases de datos y sistemas internos para negocios." />
+  <meta property="og:title" content="José Manuel Rivas Tineo | Full Stack y Automatización para Negocios" />
   <meta property="og:description" content="Conecto Excel, WhatsApp, APIs y bases de datos para convertir procesos manuales en sistemas internos y reportes prácticos." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_DO" />
   <meta name="theme-color" content="#0f2d6b" />
-  <title>José Manuel Rivas Tineo | Backend y Automatización para Negocios</title>
+  <title>José Manuel Rivas Tineo | Full Stack y Automatización para Negocios</title>
   <link rel="icon" href="./assets/favicon.svg?v=3" type="image/svg+xml">
   <link rel="shortcut icon" href="./assets/favicon.svg?v=3" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/favicon.svg?v=3">
@@ -900,7 +900,7 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 16px;
     }
 
@@ -953,6 +953,10 @@
 
     .service-card:nth-child(4) {
       border-top: 3px solid #94a3b8;
+    }
+
+    .service-card:nth-child(5) {
+      border-top: 3px solid var(--code);
     }
 
     .badge-top {
@@ -1380,6 +1384,15 @@
       aspect-ratio: 16 / 11;
       object-fit: cover;
       object-position: top center;
+    }
+
+    .website-preview img.mobile-screenshot {
+      width: min(270px, 82%);
+      margin: 18px auto;
+      aspect-ratio: auto;
+      border: 1px solid rgba(95, 215, 255, 0.16);
+      border-radius: 22px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
     }
 
     .website-preview-link {
@@ -2098,7 +2111,7 @@
         </svg>
         <span class="brand-text">
           <strong>José Rivas</strong>
-          <span data-i18n="brand.subtitle">Backend y automatización</span>
+          <span data-i18n="brand.subtitle">Full Stack y automatización</span>
         </span>
       </a>
 
@@ -2139,7 +2152,7 @@
         </div>
         <h1 id="hero-title">José Manuel Rivas Tineo</h1>
         <p class="hero-location" data-i18n="hero.location">📍 Santo Domingo, RD</p>
-        <p class="hero-title" data-i18n="hero.title">Desarrollador Backend y Automatización para Negocios</p>
+        <p class="hero-title" data-i18n="hero.title">Desarrollador Full Stack y Automatización para Negocios</p>
         <p class="hero-summary">
           <span data-i18n="hero.summary">Conecto Excel, WhatsApp, APIs y bases de datos para convertir procesos manuales en sistemas internos y reportes prácticos.</span>
         </p>
@@ -2354,6 +2367,20 @@
             <h3 data-i18n="services.dataTitle">Datos y reportes</h3>
             <p data-i18n="services.dataText">Modelado de bases de datos, consultas SQL, dashboards básicos y reportes para ventas, inventario y operaciones.</p>
           </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="15" rx="2"></rect>
+                <path d="M3 9h18"></path>
+                <path d="M8 15h5"></path>
+                <path d="M8 12h8"></path>
+                <path d="M16 17l2 2 3-5"></path>
+              </svg>
+            </div>
+            <span class="service-meta">web apps / landing pages</span>
+            <h3 data-i18n="services.webTitle">Apps web y landing pages</h3>
+            <p data-i18n="services.webText">Sitios comerciales, páginas bilingües, formularios y experiencias web listas para captar clientes o validar una idea.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -2483,6 +2510,38 @@
             </div>
           </article>
 
+          <article class="project-card">
+            <div class="project-copy">
+              <h3>Sebelén Torneos</h3>
+              <p data-i18n="projects.sebelenText">Aplicación Django para reservas y pagos de torneos de boliche, con cupos reales por tanda, reservas temporales, Cardnet QA, reCAPTCHA, rate limiting y administración operativa.</p>
+              <ul>
+                <li data-i18n="projects.sebelenBullet1">Reservas temporales con countdown, cancelación privada y expiración automática para liberar cupos.</li>
+                <li data-i18n="projects.sebelenBullet2">Integración Cardnet desde backend con confirmación server-to-server antes de marcar pagos como aprobados.</li>
+                <li data-i18n="projects.sebelenBullet3">Seguridad aplicada: reCAPTCHA v3, rate limits, CSRF, cifrado de teléfonos/tokens y logs con request_id.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Django</span>
+                <span class="tag">Cardnet</span>
+                <span class="tag">reCAPTCHA</span>
+                <span class="tag">Security</span>
+              </div>
+            </div>
+
+            <div class="project-visual phone-visual" aria-label="Screenshot de Sebelén Torneos">
+              <div class="website-preview">
+                <div class="website-preview-top">
+                  <span>sebelentorneos</span>
+                  <span>Django + Cardnet</span>
+                </div>
+                <img class="mobile-screenshot" src="assets/sebelen-torneos-screenshot.png" alt="Captura móvil de Sebelén Torneos">
+                <div class="website-preview-link">
+                  <span data-i18n="projects.sebelenPreview">Reserva, tanda y pago seguro</span>
+                  <strong>QA</strong>
+                </div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -2523,7 +2582,7 @@
       <div class="section-inner">
         <div class="section-head">
           <h2 data-i18n="stack.title">Tecnologías</h2>
-          <p data-i18n="stack.subtitle">Uso herramientas prácticas para construir backend, bases de datos, automatizaciones y productos internos mantenibles.</p>
+          <p data-i18n="stack.subtitle">Uso herramientas prácticas para construir apps web, backend, bases de datos, automatizaciones y productos internos mantenibles.</p>
         </div>
 
         <div class="tools-layout">
@@ -2587,7 +2646,7 @@
         <div class="about-layout">
           <div class="about-copy">
             <h2 data-i18n="about.title">Quién está detrás del código</h2>
-            <p data-i18n="about.p1">Soy José Manuel, desarrollador backend de Santo Domingo. Me especialicé en automatización y sistemas internos porque muchos negocios dominicanos siguen resolviendo operaciones con Excel y WhatsApp, y eso tiene solución.</p>
+            <p data-i18n="about.p1">Soy José Manuel, desarrollador full stack de Santo Domingo con enfoque fuerte en backend. Me especialicé en automatización y sistemas internos porque muchos negocios dominicanos siguen resolviendo operaciones con Excel y WhatsApp, y eso tiene solución.</p>
             <p data-i18n="about.p2">No me interesa construir cosas complicadas. Me interesa construir cosas que el negocio realmente use.</p>
           </div>
           <div class="about-stats" aria-label="Datos rápidos sobre José">
@@ -2660,7 +2719,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <span><strong>José Manuel Rivas Tineo</strong> - <span data-i18n="footer.location">Santo Domingo, República Dominicana</span> &nbsp;·&nbsp; <span id="footer-year"></span></span>
-      <span data-i18n="footer.text">Backend, APIs, automatización y sistemas internos.</span>
+      <span data-i18n="footer.text">Full Stack, APIs, automatización y sistemas internos.</span>
     </div>
   </footer>
 
@@ -2698,7 +2757,7 @@
     };
     const translations = {
       en: {
-        "brand.subtitle": "Backend and automation",
+        "brand.subtitle": "Full Stack and automation",
         "nav.menu": "Open menu",
         "nav.services": "Services",
         "nav.projects": "Projects",
@@ -2708,7 +2767,7 @@
         "nav.whatsapp": "WhatsApp",
         "language.label": "Language",
         "availability.prefix": "Available for new projects",
-        "hero.title": "Backend Developer and Business Automation",
+        "hero.title": "Full Stack Developer and Business Automation",
         "hero.location": "📍 Santo Domingo, DR",
         "hero.summary": "I connect Excel, WhatsApp, APIs, and databases to turn manual processes into internal systems and practical reports.",
         "hero.ctaPrimary": "Let's talk about your project",
@@ -2757,6 +2816,8 @@
         "services.systemsText": "Tools with login, clients, products, inventory, orders, reservations, payments, and admin panels.",
         "services.dataTitle": "Data and reports",
         "services.dataText": "Database modeling, SQL queries, basic dashboards, and reports for sales, inventory, and operations.",
+        "services.webTitle": "Web apps and landing pages",
+        "services.webText": "Commercial sites, bilingual pages, forms, and web experiences ready to capture clients or validate an idea.",
         "projects.title": "Featured Projects",
         "projects.subtitle": "Each project is presented from the value a client can understand: organizing information, automating tasks, and delivering useful systems.",
         "projects.willyText": "Backend development and automation for functional applications with business logic, relational databases, external APIs, and an AI chatbot on Telegram.",
@@ -2779,6 +2840,11 @@
         "projects.lucasBullet2": "Bilingual structure for clients in English and Spanish.",
         "projects.lucasBullet3": "Sections for services, completed work, service area, and contact.",
         "projects.lucasVisit": "Visit site",
+        "projects.sebelenText": "Django application for bowling tournament reservations and payments, with real slots per session, temporary reservations, Cardnet QA, reCAPTCHA, rate limiting, and operational admin.",
+        "projects.sebelenBullet1": "Temporary reservations with countdown, private cancellation, and automatic expiration to release spots.",
+        "projects.sebelenBullet2": "Backend Cardnet integration with server-to-server confirmation before marking payments as approved.",
+        "projects.sebelenBullet3": "Applied security: reCAPTCHA v3, rate limits, CSRF, encrypted phones/tokens, and request_id logs.",
+        "projects.sebelenPreview": "Reservation, session, and secure payment",
         "process.title": "How I Work",
         "process.subtitle": "A simple process to understand the problem, build in stages, and leave a solution the business can use without complications.",
         "process.step1Title": "Diagnostic call",
@@ -2790,7 +2856,7 @@
         "process.step4Title": "Functional delivery",
         "process.step4Text": "The system, API, or automation ready to use, with an explanation of how it works and how to maintain it.",
         "stack.title": "Technologies",
-        "stack.subtitle": "I use practical tools to build backend, databases, automations, and maintainable internal products.",
+        "stack.subtitle": "I use practical tools to build web apps, backend, databases, automations, and maintainable internal products.",
         "stack.databases": "Databases",
         "stack.automation": "Automation",
         "stack.tools": "Tools",
@@ -2801,7 +2867,7 @@
         "stack.support3": "Direct communication and progress tracking.",
         "stack.support4": "Focus on solving real business problems.",
         "about.title": "Who Is Behind the Code",
-        "about.p1": "I am José Manuel, a backend developer from Santo Domingo. I specialized in automation and internal systems because many Dominican businesses still run operations with Excel and WhatsApp, and that can be solved.",
+        "about.p1": "I am José Manuel, a full stack developer from Santo Domingo with a strong backend focus. I specialized in automation and internal systems because many Dominican businesses still run operations with Excel and WhatsApp, and that can be solved.",
         "about.p2": "I am not interested in building complicated things. I am interested in building things the business will actually use.",
         "about.stat1": "years building backend and automations",
         "about.stat2": "main language for APIs, bots, and reports",
@@ -2826,18 +2892,18 @@
         "form.whatsapp": "Send via WhatsApp",
         "form.email": "Send by email",
         "footer.location": "Santo Domingo, Dominican Republic",
-        "footer.text": "Backend, APIs, automation, and internal systems."
+        "footer.text": "Full Stack, APIs, automation, and internal systems."
       }
     };
     const pageMeta = {
       es: {
-        title: "José Manuel Rivas Tineo | Backend y Automatización para Negocios",
-        description: "Portfolio freelance de José Manuel Rivas Tineo, desarrollador backend especializado en APIs, automatización, bases de datos y sistemas internos para negocios.",
+        title: "José Manuel Rivas Tineo | Full Stack y Automatización para Negocios",
+        description: "Portfolio freelance de José Manuel Rivas Tineo, desarrollador full stack especializado en apps web, APIs, automatización, bases de datos y sistemas internos para negocios.",
         ogDescription: "Conecto Excel, WhatsApp, APIs y bases de datos para convertir procesos manuales en sistemas internos y reportes prácticos."
       },
       en: {
-        title: "José Manuel Rivas Tineo | Backend and Business Automation",
-        description: "Freelance portfolio of José Manuel Rivas Tineo, backend developer specialized in APIs, automation, databases, and internal systems for businesses.",
+        title: "José Manuel Rivas Tineo | Full Stack and Business Automation",
+        description: "Freelance portfolio of José Manuel Rivas Tineo, full stack developer specialized in web apps, APIs, automation, databases, and internal systems for businesses.",
         ogDescription: "I connect Excel, WhatsApp, APIs, and databases to turn manual processes into internal systems and practical reports."
       }
     };
